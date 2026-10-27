@@ -22,6 +22,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--
+    "Progressive enhancement": this tiny script marks the page as "JavaScript is on".
+    Animations that hide content first (then reveal it) ONLY run when .js is present,
+    so if JavaScript fails, visitors still see everything.
+  -->
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -75,6 +81,9 @@
       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
     </symbol>
   </svg>
+
+  <!-- Thin gold bar at the very top that fills up as you scroll (JavaScript sets its width) -->
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- Honesty banner: makes clear this is a concept, not the official site -->
   <div class="demo-banner">
@@ -619,6 +628,7 @@
       dishes.forEach(d => {
         const show = cat === 'all' || d.dataset.cat === cat;
         d.hidden = !show;
+        d.classList.remove('reveal');                                  // filtered items show right away
         if (show) { visibleDishes++; d.classList.remove('fade-in'); void d.offsetWidth; d.classList.add('fade-in'); }
       });
       groups.forEach(g => {
@@ -634,6 +644,73 @@
     }
 
     tabs.forEach(tab => tab.addEventListener('click', () => filterMenu(tab.dataset.filter)));
+
+    /*
+      SCROLL REVEAL (Step 5)
+      IntersectionObserver = the browser tells us when an element enters the screen.
+      Much faster than checking positions on every scroll.
+      We skip ALL of this for people who turned on "reduce motion" in their settings.
+    */
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      const targets = document.querySelectorAll(
+        '.section h2, .intro, .today-head, .follow-line, .status, .menu-grid .dish, .menu-group, ' +
+        '.order-strip, .reviews-head, .quote, .locations-head, .location, .contact-row'
+      );
+
+      // Number siblings 0,1,2... inside each parent so they arrive one after another
+      const seen = new Map();
+      targets.forEach(el => {
+        const i = seen.get(el.parentElement) || 0;
+        seen.set(el.parentElement, i + 1);
+        el.style.setProperty('--i', Math.min(i, 5));                    // cap the delay so nothing waits too long
+        el.classList.add('reveal');
+      });
+
+      const pending = new Set(targets);                                 // elements not shown yet
+
+      function reveal(el) {
+        if (!pending.has(el)) return;
+        pending.delete(el);
+        observer.unobserve(el);                                         // animate only once
+        el.classList.add('is-visible');
+        // When finished, remove the classes so hover effects work normally again
+        el.addEventListener('transitionend', () => el.classList.remove('reveal', 'is-visible'), { once: true });
+      }
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) reveal(entry.target); });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      targets.forEach(el => observer.observe(el));
+
+      // SAFETY NET: a fast flick can jump right past an element, so the observer never
+      // sees it "on screen". On scroll we also reveal anything that's already above the bottom
+      // of the screen. Lesson: always plan for the fast/weird case, not just the normal one.
+      window.revealPassed = () => {
+        pending.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) reveal(el); });
+      };
+    }
+
+    /*
+      HEADER SHADOW + SCROLL PROGRESS BAR
+      requestAnimationFrame = "do this right before the next screen paint",
+      so we update at most once per frame and scrolling stays smooth.
+    */
+    const header = document.querySelector('.header');
+    const progressBar = document.querySelector('.scroll-progress');
+    let ticking = false;
+    function onScroll() {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progressBar.style.setProperty('--progress', max > 0 ? scrollY / max : 0);
+      header.classList.toggle('is-scrolled', scrollY > 10);
+      if (window.revealPassed) window.revealPassed();
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+    }, { passive: true });
+    onScroll();
   </script>
 </body>
 </html>

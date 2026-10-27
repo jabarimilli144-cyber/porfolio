@@ -508,7 +508,7 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
 .menu-grid.is-filtered .dish-featured .price-tag { font-size: var(--fs-2xl); }
 
 /* Items fade up when a tab is tapped */
-.fade-in { animation: fadeUp 350ms var(--ease) both; }
+.fade-in { animation: fadeUp 350ms var(--ease) backwards; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
 /* "Order this" link on each card */
@@ -762,6 +762,70 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
   .mobile-bar .bar-order { background: var(--doordash); }
   .footer { padding-bottom: 96px; }
 }
+
+/* =====================================================================
+   MOTION (Step 5)
+   LESSON: good motion is SUBTLE and has a PURPOSE:
+     - guide the eye in order (headline → button → proof)
+     - show that something responded to you (hover, tap)
+     - make content feel like it "arrives" as you scroll
+   Rule of thumb: 200–700ms, ease-out, small distances (12–24px). Never block reading.
+   ===================================================================== */
+
+/* 1. Hero entrance: each line fades up one after another ("stagger") */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(40px) rotate(6deg); }
+  to   { opacity: 1; transform: rotate(2deg); }
+}
+.js .hero-copy > * { animation: heroIn 700ms var(--ease) both; }
+.js .hero-copy > :nth-child(1) { animation-delay: 100ms; }
+.js .hero-copy > :nth-child(2) { animation-delay: 200ms; }
+.js .hero-copy > :nth-child(3) { animation-delay: 320ms; }
+.js .hero-copy > :nth-child(4) { animation-delay: 440ms; }
+.js .hero-copy > :nth-child(5) { animation-delay: 560ms; }
+.js .hero-copy > :nth-child(6) { animation-delay: 660ms; }
+/* "backwards" = use the start frame while waiting, then hand control back to normal CSS,
+   so the card's hover effect still works after the animation ends */
+.js .hero-card { animation: cardIn 900ms 400ms var(--ease) backwards; }
+
+/* 2. Scroll reveal: JavaScript adds .reveal, then .is-visible when the element scrolls into view.
+      --i is the element's position in its group, so siblings arrive one after another. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 650ms var(--ease), transform 650ms var(--ease);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* 3. Header gets a shadow once you scroll, so it "lifts" above the page */
+.header { transition: box-shadow var(--dur) var(--ease), background var(--dur) var(--ease); }
+.header.is-scrolled { background: rgba(10, 15, 24, 0.97); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); }
+
+/* 4. Scroll progress bar */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-500), var(--red-500));
+  transform-origin: left;
+  transform: scaleX(var(--progress, 0));   /* JavaScript sets --progress from 0 to 1 */
+}
+
+/* 5. Micro-interactions */
+.price-tag { transition: transform var(--dur) var(--ease); }
+.dish:hover .price-tag { transform: rotate(0deg) scale(1.08); }     /* tag straightens and pops */
+.location { transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+.location:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.quote { transition: transform var(--dur) var(--ease); }
+.quote:hover { transform: translateY(-4px); }
+.status { transition: transform var(--dur-fast) var(--ease), border-color var(--dur) var(--ease); }
+.status:hover { transform: translateY(-2px); border-color: var(--ink-200); }
+.in .dot { animation: softPulse 2.4s infinite; }                     /* "available" dots breathe gently */
+@keyframes softPulse { 50% { box-shadow: 0 0 0 7px var(--ok-soft); } }
 
 /* Respect people who turn off animations in their phone/computer settings */
 @media (prefers-reduced-motion: reduce) {
