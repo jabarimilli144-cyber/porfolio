@@ -110,6 +110,8 @@ h2 { font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; margin-bottom: 8px; 
 .in em { color: var(--green); }
 .low .dot { background: var(--orange); box-shadow: 0 0 0 4px #ffedd5; }
 .low em { color: var(--orange); }
+.season .dot { background: #3b82f6; box-shadow: 0 0 0 4px #dbeafe; }
+.season em { color: #2563eb; }
 .out .dot { background: #9ca3af; }
 .out em { color: #6b7280; }
 .out strong { text-decoration: line-through; color: #9ca3af; }
@@ -198,6 +200,7 @@ h2 { font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; margin-bottom: 8px; 
 }
 .dish-featured .price-tag { font-size: 3rem; }
 .small-tag { font-size: 1.3rem; background: var(--navy); }
+.dish-featured .market-tag { font-size: 1.8rem; }
 
 .dish-body { padding: 18px 20px 22px; background: #fff; position: relative; }
 .dish h3 { font-size: 1.7rem; color: var(--navy); margin-bottom: 6px; }
