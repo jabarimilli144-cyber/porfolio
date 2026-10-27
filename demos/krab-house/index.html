@@ -173,8 +173,25 @@
     <!-- ========== SPECIALS ========== -->
     <section class="section" id="specials">
       <div class="container">
-        <h2>Crowd favorites</h2>
+        <h2>The menu</h2>
         <p class="intro">Every platter lists exactly what's in the bag. No surprises.</p>
+
+        <!--
+          CATEGORY TABS (filter buttons)
+          LESSON: Each button has data-filter="boils". Each menu item has data-cat="boils".
+          JavaScript (bottom of page) shows only the items whose data-cat matches the button you tapped.
+          "data-" attributes are YOUR OWN labels that JavaScript can read. HTML ignores them.
+          aria-pressed tells screen readers which tab is active.
+        -->
+        <div class="menu-tabs" role="toolbar" aria-label="Filter the menu">
+          <button class="menu-tab" data-filter="all" aria-pressed="true">All</button>
+          <button class="menu-tab" data-filter="boils" aria-pressed="false">Boils & Platters</button>
+          <button class="menu-tab" data-filter="fried" aria-pressed="false">Fried</button>
+          <button class="menu-tab" data-filter="crawfish" aria-pressed="false">Crawfish</button>
+          <button class="menu-tab" data-filter="gumbo" aria-pressed="false">Gumbo</button>
+          <button class="menu-tab" data-filter="sides" aria-pressed="false">Sides & Butters</button>
+        </div>
+
         <!--
           PHOTO MENU. Each card's photo is set with a CSS variable: style="--img: url(...)"
           Photos are free SAMPLE photos from Unsplash (unsplash.com/license).
@@ -182,7 +199,7 @@
           Items, contents and prices copied from their DoorDash menu (Oct 2026).
         -->
         <div class="menu-grid">
-          <article class="dish dish-featured" style="--img: url('https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1200&q=75&auto=format&fit=crop')">
+          <article class="dish dish-featured" data-cat="crawfish" style="--img: url('https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1200&q=75&auto=format&fit=crop')">
             <div class="dish-photo">
               <span class="badge"><svg class="icon"><use href="#i-flame"/></svg>Best seller · Seasonal (Jan–Jun)</span>
               <span class="price-tag">$55</span>
@@ -196,10 +213,11 @@
                 <li>Or by the pound: <strong>$9.99 / lb</strong></li>
               </ul>
               <div class="spice"><svg class="icon"><use href="#i-flame"/></svg>Pick your butter: Cajun, Garlic, Lemon Pepper, Fire or House</div>
+              <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="dish-order">Order this <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
 
-          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=800&q=75&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$55.99</span></div>
             <div class="dish-body">
               <h3>Texas Krab & Shrimp</h3>
@@ -207,10 +225,11 @@
                 <li>2 krab clusters + 15 shrimp</li>
                 <li>Sausage, corn, egg & potatoes</li>
               </ul>
+              <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="dish-order">Order this <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
 
-          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=75&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$40.99</span></div>
             <div class="dish-body">
               <h3>Texas Only Krab Plate</h3>
@@ -218,10 +237,11 @@
                 <li>2 krab clusters</li>
                 <li>Sausage, corn, egg & potatoes</li>
               </ul>
+              <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="dish-order">Order this <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
 
-          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1559813654-935eab67b93a?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559813654-935eab67b93a?w=800&q=75&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$35.99</span></div>
             <div class="dish-body">
               <h3>Texas Big Shrimp Platter</h3>
@@ -230,10 +250,11 @@
                 <li>Sausage, corn, egg & potatoes</li>
                 <li>Lil platter (10 shrimp): $30.99</li>
               </ul>
+              <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="dish-order">Order this <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
 
-          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1697748836791-9ddf7e616ece?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1697748836791-9ddf7e616ece?w=800&q=75&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$30</span></div>
             <div class="dish-body">
               <h3>Texas Catfish Basket</h3>
@@ -241,10 +262,11 @@
                 <li>3 pc catfish & fries</li>
                 <li>Corn & hush puppies</li>
               </ul>
+              <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="dish-order">Order this <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
 
-          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1568782947821-3d660dacc7cb?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1568782947821-3d660dacc7cb?w=800&q=75&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$25.99</span></div>
             <div class="dish-body">
               <h3>Texas Shrimp Basket</h3>
@@ -252,27 +274,46 @@
                 <li>15 fried shrimp & fries</li>
                 <li>Corn & hush puppies</li>
               </ul>
+              <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="dish-order">Order this <svg class="icon"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
         </div>
 
-        <!-- FULL MENU: a simple price list for everything else. A <dl> is a "description list": name + price pairs -->
+        <!--
+          FULL MENU: a simple price list for everything else, split into groups.
+          Each group has a data-cat too, so the tabs filter it as well.
+          A <dl> is a "description list": name + price pairs.
+        -->
         <div class="full-menu">
-          <div>
-            <h3>More platters</h3>
+          <div class="menu-group" data-cat="boils">
+            <h3>More boils & platters</h3>
             <dl>
               <div><dt>TNT Sampler w/ 2 pc Catfish <small>1 krab kluster, 2 catfish, 6 shrimp, egg, corn, sausage, potatoes</small></dt><dd>$45.99</dd></div>
-              <div><dt>Texas Fish & Shrimp <small>2 catfish, 8 shrimp, fries, corn, 3 hush puppies</small></dt><dd>$32.99</dd></div>
-              <div><dt>Catfish Bites <small>6 pc with fries</small></dt><dd>$25</dd></div>
-              <div><dt>Texas Family Platter <small>10 krab klusters, 50 shrimp, 5 sausage, 5 corn, 5 egg & potatoes</small></dt><dd>$206.20</dd></div>
+              <div><dt>Texas Lil Shrimp Platter <small>10 shrimp, sausage, corn, egg & potatoes</small></dt><dd>$30.99</dd></div>
+              <div><dt>Texas Family Platter <small>10 krab klusters, 50 shrimp, 5 sausage, 5 corn, 5 egg & potatoes. Feeds the crew!</small></dt><dd>$206.20</dd></div>
             </dl>
           </div>
-          <div>
-            <h3>Specialty</h3>
+          <div class="menu-group" data-cat="fried">
+            <h3>More fried</h3>
+            <dl>
+              <div><dt>Texas Fish & Shrimp <small>2 catfish, 8 shrimp, fries, corn, 3 hush puppies</small></dt><dd>$32.99</dd></div>
+              <div><dt>Catfish Bites <small>6 pc with fries</small></dt><dd>$25</dd></div>
+            </dl>
+          </div>
+          <div class="menu-group" data-cat="crawfish">
+            <h3>Crawfish</h3>
+            <dl>
+              <div><dt>Crawfish by the pound <small>Seasonal, Jan–Jun. Pick your spice & butter</small></dt><dd>$9.99 / lb</dd></div>
+            </dl>
+          </div>
+          <div class="menu-group" data-cat="gumbo">
+            <h3>Gumbo</h3>
             <dl>
               <div><dt>Gumbo <small>Shrimp, sausage & chicken over white rice</small></dt><dd>$25</dd></div>
               <div><dt>Gumbo + 2 pc Catfish</dt><dd>$35.99</dd></div>
             </dl>
+          </div>
+          <div class="menu-group" data-cat="sides">
             <h3>Sides & butters</h3>
             <dl>
               <div><dt>Corn</dt><dd>$2.50</dd></div>
@@ -517,6 +558,59 @@
     }
     updateOpenStatus();
     setInterval(updateOpenStatus, 60 * 1000);                          // re-check every minute
+
+    /*
+      MENU FILTER TABS
+      1. Find all tabs, photo cards and price-list groups.
+      2. Count how many items each category has and show it on the tab ("Fried 4").
+      3. When a tab is clicked: mark it active, show matching items, hide the rest.
+    */
+    const tabs     = document.querySelectorAll('.menu-tab');
+    const dishes   = document.querySelectorAll('.menu-grid .dish');
+    const groups   = document.querySelectorAll('.menu-group');
+    const menuGrid = document.querySelector('.menu-grid');
+    const fullMenu = document.querySelector('.full-menu');
+
+    // How many items are in a category? (photo cards + rows in the price list)
+    function countItems(cat) {
+      let count = 0;
+      dishes.forEach(d => { if (cat === 'all' || d.dataset.cat === cat) count++; });
+      groups.forEach(g => { if (cat === 'all' || g.dataset.cat === cat) count += g.querySelectorAll('dl > div').length; });
+      return count;
+    }
+
+    // Add the count bubble to every tab
+    tabs.forEach(tab => {
+      const bubble = document.createElement('span');
+      bubble.className = 'tab-count';
+      bubble.textContent = countItems(tab.dataset.filter);
+      tab.append(bubble);
+    });
+
+    function filterMenu(cat) {
+      // 1. Highlight the active tab
+      tabs.forEach(t => t.setAttribute('aria-pressed', t.dataset.filter === cat));
+
+      // 2. Show/hide photo cards and price-list groups
+      let visibleDishes = 0, visibleGroups = 0;
+      dishes.forEach(d => {
+        const show = cat === 'all' || d.dataset.cat === cat;
+        d.hidden = !show;
+        if (show) { visibleDishes++; d.classList.remove('fade-in'); void d.offsetWidth; d.classList.add('fade-in'); }
+      });
+      groups.forEach(g => {
+        const show = cat === 'all' || g.dataset.cat === cat;
+        g.hidden = !show;
+        if (show) visibleGroups++;
+      });
+
+      // 3. Hide a whole area if it has nothing to show (e.g. "Gumbo" has no photo cards)
+      menuGrid.hidden = visibleDishes === 0;
+      fullMenu.hidden = visibleGroups === 0;
+      menuGrid.classList.toggle('is-filtered', cat !== 'all');
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => filterMenu(tab.dataset.filter)));
   </script>
 </body>
 </html>
