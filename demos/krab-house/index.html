@@ -66,7 +66,7 @@
           <div class="status season"><span class="dot"></span><strong>Crawfish</strong><em>Back in season soon</em></div>
           <div class="status in">  <span class="dot"></span><strong>Crab clusters</strong><em>Available</em></div>
           <div class="status in">  <span class="dot"></span><strong>Shrimp</strong><em>Available</em></div>
-          <div class="status low"> <span class="dot"></span><strong>Boudin balls</strong><em>Running low</em></div>
+          <div class="status low"> <span class="dot"></span><strong>Gumbo</strong><em>Running low</em></div>
           <div class="status out"> <span class="dot"></span><strong>Fried fish</strong><em>Sold out</em></div>
         </div>
       </div>
@@ -76,96 +76,121 @@
     <section class="section" id="specials">
       <div class="container">
         <h2>Crowd favorites</h2>
-        <p class="intro">Every special lists exactly what's in the bag. No surprises.</p>
+        <p class="intro">Every platter lists exactly what's in the bag. No surprises.</p>
         <!--
           PHOTO MENU. Each card's photo is set with a CSS variable: style="--img: url(...)"
           Photos are free SAMPLE photos from Unsplash (unsplash.com/license).
           Before launch: replace them with the owner's REAL food photos.
+          Items, contents and prices copied from their DoorDash menu (Oct 2026).
         -->
         <div class="menu-grid">
           <article class="dish dish-featured" style="--img: url('https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1200&q=75&auto=format&fit=crop')">
             <div class="dish-photo">
               <span class="badge">🔥 Best seller · Seasonal (Jan–Jun)</span>
-              <!-- Crawfish prices change week to week, so "Market price" is safer than a fixed number -->
-              <span class="price-tag market-tag">Market price</span>
+              <span class="price-tag">$55</span>
             </div>
             <div class="dish-body">
-              <h3>5 lb Crawfish Special</h3>
+              <h3>5 lb Crawfish Combo</h3>
               <!-- A clear "what's included" list fixes the "I thought it came with corn" complaints -->
               <ul class="includes">
-                <li>5 lbs boiled crawfish, during crawfish season</li>
-                <li>Choice of spice level: mild, medium, hot, extra hot</li>
-                <li class="sample">Add corn, potatoes, sausage or egg (ask for prices)</li>
+                <li>5 lbs boiled crawfish</li>
+                <li>1 corn, 1 potatoes, 1 egg, 1 sausage</li>
+                <li>Or by the pound: <strong>$9.99 / lb</strong></li>
               </ul>
-              <div class="spice">Spice: <span>🌶️🌶️🌶️</span></div>
+              <div class="spice">Pick your butter: Cajun, Garlic, Lemon Pepper, Fire or House</div>
             </div>
           </article>
 
           <article class="dish" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=800&q=75&auto=format&fit=crop')">
-            <div class="dish-photo"><span class="price-tag small-tag">Ask</span></div>
+            <div class="dish-photo"><span class="price-tag">$55.99</span></div>
             <div class="dish-body">
-              <h3>Crab & Shrimp Platter</h3>
+              <h3>Texas Krab & Shrimp</h3>
               <ul class="includes">
-                <li>Crab clusters + shrimp</li>
-                <li>Tossed in Cajun butter</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1766589221324-656419e4c844?w=800&q=75&auto=format&fit=crop')">
-            <div class="dish-photo">
-              <span class="badge">💸 Every day</span>
-              <span class="price-tag">$1</span>
-            </div>
-            <div class="dish-body">
-              <h3>$1 Wings</h3>
-              <ul class="includes">
-                <li>Lemon pepper or spicy lemon pepper</li>
-                <li class="sample">Price may vary</li>
-                <li>Add fries</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1697748836791-9ddf7e616ece?w=800&q=75&auto=format&fit=crop')">
-            <div class="dish-photo"><span class="price-tag small-tag">Ask</span></div>
-            <div class="dish-body">
-              <h3>Catfish Basket</h3>
-              <ul class="includes">
-                <li>Golden fried catfish</li>
-                <li>Served with fries</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1568782947821-3d660dacc7cb?w=800&q=75&auto=format&fit=crop')">
-            <div class="dish-photo"><span class="price-tag small-tag">Ask</span></div>
-            <div class="dish-body">
-              <h3>Shrimp Basket</h3>
-              <ul class="includes">
-                <li>Crispy fried shrimp</li>
-                <li>Served with fries</li>
+                <li>2 krab clusters + 15 shrimp</li>
+                <li>Sausage, corn, egg & potatoes</li>
               </ul>
             </div>
           </article>
 
           <article class="dish" style="--img: url('https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=75&auto=format&fit=crop')">
-            <div class="dish-photo"><span class="price-tag small-tag">Add‑ons</span></div>
+            <div class="dish-photo"><span class="price-tag">$40.99</span></div>
             <div class="dish-body">
-              <h3>Sides & Extras</h3>
+              <h3>Texas Only Krab Plate</h3>
               <ul class="includes">
-                <li>Corn, potatoes, sausage, egg</li>
-                <li>Boudin balls, fried pickles</li>
+                <li>2 krab clusters</li>
+                <li>Sausage, corn, egg & potatoes</li>
               </ul>
             </div>
           </article>
+
+          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1559813654-935eab67b93a?w=800&q=75&auto=format&fit=crop')">
+            <div class="dish-photo"><span class="price-tag">$35.99</span></div>
+            <div class="dish-body">
+              <h3>Texas Big Shrimp Platter</h3>
+              <ul class="includes">
+                <li>15 shrimp</li>
+                <li>Sausage, corn, egg & potatoes</li>
+                <li>Lil platter (10 shrimp): $30.99</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1697748836791-9ddf7e616ece?w=800&q=75&auto=format&fit=crop')">
+            <div class="dish-photo"><span class="price-tag">$30</span></div>
+            <div class="dish-body">
+              <h3>Texas Catfish Basket</h3>
+              <ul class="includes">
+                <li>3 pc catfish & fries</li>
+                <li>Corn & hush puppies</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1568782947821-3d660dacc7cb?w=800&q=75&auto=format&fit=crop')">
+            <div class="dish-photo"><span class="price-tag">$25.99</span></div>
+            <div class="dish-body">
+              <h3>Texas Shrimp Basket</h3>
+              <ul class="includes">
+                <li>15 fried shrimp & fries</li>
+                <li>Corn & hush puppies</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- FULL MENU: a simple price list for everything else. A <dl> is a "description list": name + price pairs -->
+        <div class="full-menu">
+          <div>
+            <h3>More platters</h3>
+            <dl>
+              <div><dt>TNT Sampler w/ 2 pc Catfish <small>1 krab kluster, 2 catfish, 6 shrimp, egg, corn, sausage, potatoes</small></dt><dd>$45.99</dd></div>
+              <div><dt>Texas Fish & Shrimp <small>2 catfish, 8 shrimp, fries, corn, 3 hush puppies</small></dt><dd>$32.99</dd></div>
+              <div><dt>Catfish Bites <small>6 pc with fries</small></dt><dd>$25</dd></div>
+              <div><dt>Texas Family Platter <small>10 krab klusters, 50 shrimp, 5 sausage, 5 corn, 5 egg & potatoes</small></dt><dd>$206.20</dd></div>
+            </dl>
+          </div>
+          <div>
+            <h3>Specialty</h3>
+            <dl>
+              <div><dt>Gumbo <small>Shrimp, sausage & chicken over white rice</small></dt><dd>$25</dd></div>
+              <div><dt>Gumbo + 2 pc Catfish</dt><dd>$35.99</dd></div>
+            </dl>
+            <h3>Sides & butters</h3>
+            <dl>
+              <div><dt>Corn</dt><dd>$2.50</dd></div>
+              <div><dt>Sausage</dt><dd>$3.50</dd></div>
+              <div><dt>Fries · Potatoes</dt><dd>$5</dd></div>
+              <div><dt>Extra butter <small>Cajun, Garlic, Lemon Pepper, Fire, House</small></dt><dd>+$1.50</dd></div>
+              <div><dt>Bottled water</dt><dd>$2</dd></div>
+            </dl>
+          </div>
         </div>
         <!-- A call-to-action right after the menu: people decide what they want, then order -->
         <div class="order-strip">
           <p><strong>Hungry yet?</strong> Get it delivered to your door.</p>
           <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash">🛵 Order on DoorDash</a>
         </div>
-        <p class="note">Demo menu: items are taken from customer reviews; sample photos from Unsplash. Final menu, prices and photos to be confirmed with the owner.</p>
+        <p class="note">Prices from the DoorDash menu (October 2026); in-store prices may differ. Sample photos from Unsplash. Final menu, prices and photos to be confirmed with the owner.</p>
       </div>
     </section>
 

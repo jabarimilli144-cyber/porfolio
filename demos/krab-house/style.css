@@ -209,6 +209,30 @@ h2 { font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; margin-bottom: 8px; 
 
 .order-strip { background: var(--red); }
 
+/* ---------- Full menu price list ---------- */
+.full-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 48px;
+  margin-top: 28px;
+  padding: 28px 32px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+}
+.full-menu h3 { color: var(--gold); font-size: 1.8rem; margin: 6px 0 8px; }
+.full-menu dl div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+.full-menu dt { font-weight: 600; }
+.full-menu dt small { display: block; font-weight: 400; color: #cbd5e1; font-size: 0.85rem; }
+.full-menu dd { font-weight: 800; color: var(--gold); white-space: nowrap; }
+
 /* ---------- Reviews ---------- */
 .reviews {
   background:
@@ -249,6 +273,7 @@ h2 { font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; margin-bottom: 8px; 
   .hero { padding: 60px 0 70px; }
   .visit-grid { grid-template-columns: 1fr; }
   .menu-grid { grid-template-columns: 1fr; }               /* one dish per row on phones */
+  .full-menu { grid-template-columns: 1fr; padding: 20px; }
   .dish-featured { grid-column: auto; grid-row: auto; }
   .dish-featured .dish-photo { aspect-ratio: 4 / 3; min-height: 0; }
   .dish-featured h3 { font-size: 2rem; }
