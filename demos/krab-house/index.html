@@ -12,19 +12,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <!-- "noindex" tells Google NOT to list this demo, so it never competes with the real business -->
   <meta name="robots" content="noindex, nofollow">
   <title>Texas Krab House Round Rock | Cajun Seafood Boil (Demo)</title>
   <meta name="description" content="Louisiana-style crawfish, crab and shrimp boils in Round Rock, TX.">
-  <!-- Google Fonts: a bold font for headings -->
+  <meta name="theme-color" content="#0f1724">
+  <!-- Google Fonts: Bebas Neue (bold display headings) + Inter (clean, readable body text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <!--
+    SVG ICON SPRITE
+    LESSON: Emojis look different on every phone (Apple vs Samsung vs Windows) and feel cheap.
+    Pros use SVG icons: sharp at any size, same everywhere, and they take the text color.
+    We draw each icon ONCE here as a <symbol>, then reuse it anywhere with:
+        <svg class="icon"><use href="#i-phone"/></svg>
+    Most paths are from Lucide icons (lucide.dev, ISC license, free to use).
+  -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-crab" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="14.5" rx="5.5" ry="3.8"/>
+      <path d="M10.5 10.8V8.5M13.5 10.8V8.5"/>
+      <path d="M6.8 12.6 4.6 9.8M17.2 12.6l2.2-2.8"/>
+      <path d="M4.6 9.8c-2-.5-2.6-3.1-1.5-4.6l1.8 2 .6-2.5c1.5 1 1.4 3.9-.9 5.1zM19.4 9.8c2-.5 2.6-3.1 1.5-4.6l-1.8 2-.6-2.5c-1.5 1-1.4 3.9.9 5.1z"/>
+      <path d="M6.6 15.2 3.2 16.6M7.2 17.2 4.5 19.5M17.4 15.2l3.4 1.4M16.8 17.2l2.7 2.3"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
+    <symbol id="i-bike" viewBox="0 0 24 24">
+      <circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/>
+      <circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <symbol id="i-message" viewBox="0 0 24 24">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24">
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </symbol>
+  </svg>
+
   <!-- Honesty banner: makes clear this is a concept, not the official site -->
   <div class="demo-banner">
     Website concept by <a href="https://cyan-dev.vercel.app" target="_blank">Ja'Bari Milligan</a> for Texas Krab House. Not the official site.
@@ -32,8 +76,11 @@
 
   <header class="header">
     <div class="container nav">
-      <a href="#" class="logo">🦀 Texas <span>Krab</span> House</a>
-      <a href="tel:+12544184542" class="btn btn-small">📞 Call to order</a>
+      <a href="#" class="logo" aria-label="Texas Krab House home">
+        <span class="logo-mark"><svg class="icon"><use href="#i-crab"/></svg></span>
+        <span class="logo-text">Texas <span>Krab</span> House</span>
+      </a>
+      <a href="tel:+12544184542" class="btn btn-small"><svg class="icon"><use href="#i-phone"/></svg>Call to order</a>
     </div>
   </header>
 
@@ -41,15 +88,15 @@
     <!-- ========== HERO ========== -->
     <section class="hero">
       <div class="container">
-        <p class="tag">Round Rock, TX · Louisiana‑style boils</p>
+        <p class="tag"><svg class="icon"><use href="#i-pin"/></svg>Round Rock, TX · Louisiana‑style boils</p>
         <h1>Fresh crawfish.<br>Bold Cajun flavor.<br><span>Backyard‑boil taste.</span></h1>
         <p class="lead">Crawfish, crab clusters, shrimp and catfish, soaked in our house Cajun butter. Made fresh, served heavy.</p>
         <div class="hero-buttons">
           <!-- DoorDash link: confirm with the owner this is their current store page -->
-          <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash">🛵 Order on DoorDash</a>
-          <a href="tel:+12544184542" class="btn">📞 Call to pre‑order</a>
+          <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash"><svg class="icon"><use href="#i-bike"/></svg>Order on DoorDash</a>
+          <a href="tel:+12544184542" class="btn"><svg class="icon"><use href="#i-phone"/></svg>Call to pre‑order</a>
           <!-- Opens Google Maps directions on phones -->
-          <a href="https://www.google.com/maps/dir/?api=1&destination=30.3440673,-97.6070413" target="_blank" class="btn btn-outline">📍 Get directions</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=30.3440673,-97.6070413" target="_blank" class="btn btn-outline"><svg class="icon"><use href="#i-pin"/></svg>Get directions</a>
         </div>
       </div>
     </section>
@@ -60,7 +107,7 @@
         <div class="today-head">
           <h2>Today's Boil</h2>
           <!-- The owner changes ONE word here each morning (or we connect it to a Google Sheet later) -->
-          <p class="updated">Updated daily · check before you drive 🚗</p>
+          <p class="updated"><svg class="icon"><use href="#i-clock"/></svg>Updated daily · check before you drive</p>
         </div>
         <div class="status-grid">
           <div class="status season"><span class="dot"></span><strong>Crawfish</strong><em>Back in season soon</em></div>
@@ -86,7 +133,7 @@
         <div class="menu-grid">
           <article class="dish dish-featured" style="--img: url('https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1200&q=75&auto=format&fit=crop')">
             <div class="dish-photo">
-              <span class="badge">🔥 Best seller · Seasonal (Jan–Jun)</span>
+              <span class="badge"><svg class="icon"><use href="#i-flame"/></svg>Best seller · Seasonal (Jan–Jun)</span>
               <span class="price-tag">$55</span>
             </div>
             <div class="dish-body">
@@ -97,7 +144,7 @@
                 <li>1 corn, 1 potatoes, 1 egg, 1 sausage</li>
                 <li>Or by the pound: <strong>$9.99 / lb</strong></li>
               </ul>
-              <div class="spice">Pick your butter: Cajun, Garlic, Lemon Pepper, Fire or House</div>
+              <div class="spice"><svg class="icon"><use href="#i-flame"/></svg>Pick your butter: Cajun, Garlic, Lemon Pepper, Fire or House</div>
             </div>
           </article>
 
@@ -188,7 +235,7 @@
         <!-- A call-to-action right after the menu: people decide what they want, then order -->
         <div class="order-strip">
           <p><strong>Hungry yet?</strong> Get it delivered to your door.</p>
-          <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash">🛵 Order on DoorDash</a>
+          <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash"><svg class="icon"><use href="#i-bike"/></svg>Order on DoorDash<svg class="icon"><use href="#i-arrow"/></svg></a>
         </div>
         <p class="note">Prices from the DoorDash menu (October 2026); in-store prices may differ. Sample photos from Unsplash. Final menu, prices and photos to be confirmed with the owner.</p>
       </div>
@@ -200,14 +247,17 @@
         <h2>What Round Rock is saying</h2>
         <div class="grid">
           <blockquote class="card quote">
+            <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
             <p>"Best crawfish in Round Rock. Hands down."</p>
             <cite>Jennifer D. · Google review</cite>
           </blockquote>
           <blockquote class="card quote">
+            <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
             <p>"Heavy plates every time. Love the Cajun seasoning."</p>
             <cite>David L. · Google review</cite>
           </blockquote>
           <blockquote class="card quote">
+            <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
             <p>"Tasted like a good backyard boil."</p>
             <cite>Bennie B. · Google review</cite>
           </blockquote>
@@ -229,10 +279,10 @@
           </table>
           <p class="small">Closing early or sold out? We post it in <a href="#today">Today's Boil</a> first.</p>
           <div class="hero-buttons">
-            <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash">🛵 DoorDash</a>
-            <a href="tel:+12544184542" class="btn">📞 (254) 418‑4542</a>
+            <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash"><svg class="icon"><use href="#i-bike"/></svg>DoorDash</a>
+            <a href="tel:+12544184542" class="btn"><svg class="icon"><use href="#i-phone"/></svg>(254) 418‑4542</a>
             <!-- "sms:" opens the text app, for people who'd rather text than call -->
-            <a href="sms:+12544184542" class="btn btn-outline">💬 Text us</a>
+            <a href="sms:+12544184542" class="btn btn-outline"><svg class="icon"><use href="#i-message"/></svg>Text us</a>
           </div>
         </div>
         <!-- A Google Map embedded with an <iframe> (a "window" to another website) -->
@@ -243,12 +293,12 @@
     </section>
   </main>
 
-  <!-- Sticky bar on phones: call + directions always one tap away -->
-  <div class="mobile-bar">
-    <a href="tel:+12544184542">📞 Call</a>
-    <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="bar-order">🛵 Order</a>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=30.3440673,-97.6070413" target="_blank">📍 Directions</a>
-  </div>
+  <!-- Sticky bar on phones: icon on top, label below, like a real app's tab bar -->
+  <nav class="mobile-bar" aria-label="Quick actions">
+    <a href="tel:+12544184542"><svg class="icon"><use href="#i-phone"/></svg>Call</a>
+    <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="bar-order"><svg class="icon"><use href="#i-bike"/></svg>Order</a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=30.3440673,-97.6070413" target="_blank"><svg class="icon"><use href="#i-pin"/></svg>Directions</a>
+  </nav>
 
   <footer class="footer">
     <p>© 2026 Texas Krab House Round Rock</p>
