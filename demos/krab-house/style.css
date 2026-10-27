@@ -678,9 +678,38 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
   background: var(--surface); border: 1px solid var(--paper-200); border-radius: var(--radius-lg);
 }
 
+/* ---------- Socials ---------- */
+.follow-line {
+  display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2);
+  margin: calc(var(--space-3) * -1) 0 var(--space-5);
+  color: var(--text-muted); font-size: var(--fs-sm);
+}
+.social-pill {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-weight: 700; color: var(--white);
+  transition: transform var(--dur-fast) var(--ease), filter var(--dur) var(--ease);
+}
+.social-pill .icon { width: 1em; height: 1em; }
+.social-pill:hover { transform: translateY(-1px); filter: brightness(1.1); }
+.social-pill.fb { background: #1877f2; }   /* Facebook's brand blue */
+.social-pill.tt { background: #000; }      /* TikTok's brand black */
+
 /* ---------- Footer ---------- */
 .footer { background: var(--ink-950); color: var(--ink-300); text-align: center; padding: var(--space-6) var(--space-5); font-size: var(--fs-sm); }
 .footer a { color: var(--gold-400); }
+.socials { display: flex; justify-content: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+.socials a {
+  display: grid; place-items: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  transition: background var(--dur) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.socials a:hover { background: var(--brand); transform: translateY(-2px); }
+.socials .icon { width: 20px; height: 20px; }
 
 /* ---------- Mobile sticky bar ---------- */
 .mobile-bar { display: none; }
