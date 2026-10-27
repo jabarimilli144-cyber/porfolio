@@ -402,18 +402,65 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
     linear-gradient(rgba(92, 7, 21, 0.9), rgba(10, 15, 24, 0.94)),
     url("https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=1600&q=60&auto=format&fit=crop") center / cover;
 }
-.reviews h2 { color: var(--white); margin-bottom: var(--space-6); }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-5); }
+.reviews h2 { color: var(--white); }
+.reviews-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); margin-bottom: var(--space-6); }
+.reviews-sub { color: var(--ink-200); }
+
+.carousel-nav { display: flex; gap: var(--space-2); }
+.nav-btn {
+  display: grid; place-items: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.nav-btn:hover { background: rgba(255, 255, 255, 0.2); }
+.nav-btn:active { transform: scale(0.94); }
+.nav-btn[data-dir="-1"] .icon { transform: rotate(180deg); }   /* same arrow icon, flipped */
+
+/* The carousel track: one row of cards that scrolls sideways */
+.review-track {
+  display: grid;
+  grid-auto-flow: column;                    /* put every card in ONE row */
+  grid-auto-columns: min(360px, 85%);        /* each card's width; 85% shows a peek of the next card on phones */
+  gap: var(--space-5);
+  overflow-x: auto;                          /* allow sideways scrolling */
+  scroll-snap-type: x mandatory;             /* stop neatly on each card */
+  scroll-padding-left: 2px;
+  padding: var(--space-2) 2px var(--space-5);
+  overscroll-behavior-x: contain;            /* swiping the carousel doesn't swipe the page */
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-500) rgba(255, 255, 255, 0.1);
+}
+.review-track::-webkit-scrollbar { height: 6px; }
+.review-track::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 99px; }
+.review-track::-webkit-scrollbar-thumb { background: var(--gold-500); border-radius: 99px; }
+
 .card {
   background: var(--surface);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   box-shadow: var(--shadow-lg);
 }
-.stars { display: flex; gap: 2px; color: var(--gold-500); margin-bottom: var(--space-3); }
+.quote { display: flex; flex-direction: column; scroll-snap-align: start; }
+.quote-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4); }
+.stars { display: flex; gap: 2px; color: var(--gold-500); }
 .stars .icon { width: 18px; height: 18px; }
-.quote p { font-size: var(--fs-lg); font-weight: 600; line-height: var(--lh-snug); margin-bottom: var(--space-4); }
+.source {
+  font-size: var(--fs-xs); font-weight: 700;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-pill);
+}
+.source-google { background: var(--info-soft); color: var(--info); }
+.source-dd     { background: #ffe4dc; color: #c2280a; }
+.quote p { flex: 1; font-size: var(--fs-lg); font-weight: 600; line-height: var(--lh-snug); margin-bottom: var(--space-4); }
 .quote cite { color: var(--text-muted); font-style: normal; font-size: var(--fs-sm); }
+
+.swipe-hint { display: none; align-items: center; gap: var(--space-2); color: var(--ink-200); font-size: var(--fs-sm); }
+.swipe-hint .icon { width: 1em; height: 1em; }
 
 /* ---------- Visit ---------- */
 .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); align-items: center; }
@@ -444,6 +491,8 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
 @media (max-width: 760px) {
   .container { padding: 0 var(--space-4); }
   .header .btn-small { display: none; }
+  .carousel-nav { display: none; }            /* phones swipe instead */
+  .swipe-hint { display: flex; }
   .hero { padding: var(--space-8) 0; }
   .visit-grid { grid-template-columns: 1fr; }
   .menu-grid { grid-template-columns: 1fr; }

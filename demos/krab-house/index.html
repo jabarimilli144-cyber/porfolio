@@ -244,24 +244,89 @@
     <!-- ========== REVIEWS ========== -->
     <section class="section reviews">
       <div class="container">
-        <h2>What Round Rock is saying</h2>
-        <div class="grid">
+        <div class="reviews-head">
+          <div>
+            <h2>What Round Rock is saying</h2>
+            <p class="reviews-sub">Real reviews from Google and DoorDash customers</p>
+          </div>
+          <!-- Arrow buttons for desktop. On phones, people just swipe. -->
+          <div class="carousel-nav">
+            <button class="nav-btn" data-dir="-1" aria-label="Previous reviews"><svg class="icon"><use href="#i-arrow"/></svg></button>
+            <button class="nav-btn" data-dir="1" aria-label="Next reviews"><svg class="icon"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+
+        <!--
+          CAROUSEL with CSS only: the cards sit in ONE row (grid-auto-flow: column),
+          the row can scroll sideways (overflow-x: auto), and "scroll-snap" makes
+          each swipe stop neatly on a card, like Instagram stories.
+          Reviews are short excerpts; names shortened for privacy.
+        -->
+        <div class="review-track" tabindex="0" aria-label="Customer reviews">
           <blockquote class="card quote">
-            <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+            <div class="quote-top">
+              <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <span class="source source-google">Google</span>
+            </div>
             <p>"Best crawfish in Round Rock. Hands down."</p>
-            <cite>Jennifer D. · Google review</cite>
+            <cite>Jennifer D.</cite>
           </blockquote>
+
           <blockquote class="card quote">
-            <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+            <div class="quote-top">
+              <div class="stars" aria-label="Loved it"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <span class="source source-dd">DoorDash</span>
+            </div>
+            <p>"The crawfish was on point, seasoned just right, spicy but not overkill. Them crawfish were cleaned right!"</p>
+            <cite>Nae J. · Mar 2025</cite>
+          </blockquote>
+
+          <blockquote class="card quote">
+            <div class="quote-top">
+              <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <span class="source source-google">Google</span>
+            </div>
             <p>"Heavy plates every time. Love the Cajun seasoning."</p>
-            <cite>David L. · Google review</cite>
+            <cite>David L.</cite>
           </blockquote>
+
           <blockquote class="card quote">
-            <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+            <div class="quote-top">
+              <div class="stars" aria-label="Loved it"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <span class="source source-dd">DoorDash</span>
+            </div>
+            <p>"The best crawfish I've had outside of Louisiana. The flavors were just right!"</p>
+            <cite>B. B. · Mar 2024</cite>
+          </blockquote>
+
+          <blockquote class="card quote">
+            <div class="quote-top">
+              <div class="stars" aria-label="Loved it"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <span class="source source-dd">DoorDash</span>
+            </div>
+            <p>"This is the best fried fish & shrimp I've had in this area! Crispy & well seasoned!"</p>
+            <cite>Jasmine G. · May 2025</cite>
+          </blockquote>
+
+          <blockquote class="card quote">
+            <div class="quote-top">
+              <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <span class="source source-google">Google</span>
+            </div>
             <p>"Tasted like a good backyard boil."</p>
-            <cite>Bennie B. · Google review</cite>
+            <cite>Bennie B.</cite>
+          </blockquote>
+
+          <blockquote class="card quote">
+            <div class="quote-top">
+              <div class="stars" aria-label="Loved it"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <span class="source source-dd">DoorDash</span>
+            </div>
+            <p>"The cleanest and freshest that I've had, and I've tried every place in the area."</p>
+            <cite>B. B. · Feb 2025</cite>
           </blockquote>
         </div>
+        <p class="swipe-hint">Swipe for more reviews <svg class="icon"><use href="#i-arrow"/></svg></p>
       </div>
     </section>
 
@@ -304,5 +369,21 @@
     <p>© 2026 Texas Krab House Round Rock</p>
     <p class="small">Concept design by <a href="https://cyan-dev.vercel.app" target="_blank">Ja'Bari Milligan</a></p>
   </footer>
+
+  <!--
+    YOUR FIRST JAVASCRIPT! ⚡
+    HTML = structure, CSS = looks, JavaScript = BEHAVIOR (what happens when you click).
+    This makes the arrow buttons scroll the review carousel by one card.
+  -->
+  <script>
+    const track = document.querySelector('.review-track');           // find the carousel
+    document.querySelectorAll('.nav-btn').forEach(button => {         // for each arrow button...
+      button.addEventListener('click', () => {                        // ...when it's clicked:
+        const card = track.querySelector('.quote');
+        const step = card.offsetWidth + 24;                           // one card + the gap
+        track.scrollBy({ left: step * Number(button.dataset.dir), behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
