@@ -80,24 +80,75 @@
         <span class="logo-mark"><svg class="icon"><use href="#i-crab"/></svg></span>
         <span class="logo-text">Texas <span>Krab</span> House</span>
       </a>
-      <a href="tel:+12544184542" class="btn btn-small"><svg class="icon"><use href="#i-phone"/></svg>Call to order</a>
+      <!-- Desktop menu links (hidden on phones; the bottom tab bar does this job there) -->
+      <nav class="nav-links" aria-label="Main">
+        <a href="#specials">Menu</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#locations">Locations</a>
+      </nav>
+      <!-- Header button = the SAME main action as the hero. One goal, repeated. -->
+      <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-small btn-doordash"><svg class="icon"><use href="#i-bike"/></svg>Order now</a>
     </div>
   </header>
 
   <main>
-    <!-- ========== HERO ========== -->
+    <!--
+      ========== HERO ==========
+      LESSON: the 5-second test. In 5 seconds a visitor must know:
+        1. WHAT you serve  → headline + lead
+        2. WHERE / WHEN    → live "Open now" status + location
+        3. HOW to order    → ONE big main button
+      Plus ONE piece of social proof near the button, so they trust it.
+
+      Visual hierarchy: the main button is big and bright; "Call" is a quiet text link.
+      When everything shouts, nothing gets heard.
+    -->
     <section class="hero">
-      <div class="container">
-        <p class="tag"><svg class="icon"><use href="#i-pin"/></svg>Manor, TX · Open every day 11am–9pm</p>
-        <h1>Fresh crawfish.<br>Bold Cajun flavor.<br><span>Backyard‑boil taste.</span></h1>
-        <p class="lead">Crawfish, crab clusters, shrimp and catfish, soaked in our house Cajun butter. Made fresh, served heavy.</p>
-        <div class="hero-buttons">
-          <!-- DoorDash link: confirm with the owner this is their current store page -->
-          <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash"><svg class="icon"><use href="#i-bike"/></svg>Order on DoorDash</a>
-          <a href="tel:+12544184542" class="btn"><svg class="icon"><use href="#i-phone"/></svg>Call to pre‑order</a>
-          <!-- With 2 locations, this jumps to the locations section so people pick the closest one -->
-          <a href="#locations" class="btn btn-outline"><svg class="icon"><use href="#i-pin"/></svg>3 locations</a>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <!-- The status text is filled in by JavaScript at the bottom of the page -->
+          <p class="tag status-tag" id="open-status">
+            <span class="live-dot"></span>
+            <span class="status-text">Open every day 11am–9pm</span>
+            <span class="status-sep">·</span> Manor, TX
+          </p>
+
+          <h1>Heavy plates.<br>Bold Cajun flavor.<br><span>Backyard‑boil taste.</span></h1>
+          <p class="lead">Crab clusters, shrimp, catfish and seasonal crawfish, tossed in your choice of house‑made butter.</p>
+
+          <div class="hero-actions">
+            <!-- DoorDash link: confirm with the owner this is their current store page -->
+            <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash btn-lg"><svg class="icon"><use href="#i-bike"/></svg>Order on DoorDash<svg class="icon arrow"><use href="#i-arrow"/></svg></a>
+            <a href="tel:+12544184542" class="link-quiet"><svg class="icon"><use href="#i-phone"/></svg>or call (254) 418‑4542</a>
+          </div>
+
+          <!-- Social proof right under the button: "other people trust them, so can I" -->
+          <a href="#reviews" class="proof">
+            <span class="stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></span>
+            <span><strong>92% recommend</strong> · 883 Facebook reviews</span>
+          </a>
+
+          <!-- Trust row: quick facts that remove doubts -->
+          <ul class="trust-row">
+            <li><svg class="icon"><use href="#i-clock"/></svg>Open daily 11–9</li>
+            <li><svg class="icon"><use href="#i-bike"/></svg>Pickup & delivery</li>
+            <li><a href="#locations"><svg class="icon"><use href="#i-pin"/></svg>3 Texas locations</a></li>
+          </ul>
         </div>
+
+        <!-- Featured dish card (desktop only): gives the eye something delicious to land on -->
+        <a href="#specials" class="hero-card" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=900&q=75&auto=format&fit=crop')">
+          <span class="hero-card-photo"></span>
+          <span class="hero-card-body">
+            <span class="hero-card-label"><svg class="icon"><use href="#i-flame"/></svg>Fan favorite</span>
+            <span class="hero-card-title">Texas Krab & Shrimp</span>
+            <span class="hero-card-meta">2 krab clusters · 15 shrimp · corn, egg, sausage & potatoes</span>
+            <span class="hero-card-foot">
+              <span class="hero-card-price">$55.99</span>
+              <span class="hero-card-link">See the menu <svg class="icon"><use href="#i-arrow"/></svg></span>
+            </span>
+          </span>
+        </a>
       </div>
     </section>
 
@@ -242,7 +293,7 @@
     </section>
 
     <!-- ========== REVIEWS ========== -->
-    <section class="section reviews">
+    <section class="section reviews" id="reviews">
       <div class="container">
         <div class="reviews-head">
           <div>
@@ -446,6 +497,26 @@
         track.scrollBy({ left: step * Number(button.dataset.dir), behavior: 'smooth' });
       });
     });
+
+    /*
+      LIVE "OPEN NOW" STATUS
+      Manor hours (from their Facebook page): every day, 11am to 9pm, Texas time.
+      We read the current time IN TEXAS (America/Chicago), even if the visitor is somewhere else,
+      then show "Open now" or "Closed · opens at 11am".
+    */
+    const OPEN_HOUR = 11, CLOSE_HOUR = 21;                             // 21 = 9pm (24-hour clock)
+    function updateOpenStatus() {
+      const texasHour = Number(new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Chicago', hour: 'numeric', hourCycle: 'h23'
+      }).format(new Date()));
+      const isOpen = texasHour >= OPEN_HOUR && texasHour < CLOSE_HOUR;
+      const tag = document.getElementById('open-status');
+      tag.classList.toggle('is-open', isOpen);                         // adds/removes the green style
+      tag.querySelector('.status-text').textContent =
+        isOpen ? 'Open now · until 9pm' : 'Closed · opens at 11am';
+    }
+    updateOpenStatus();
+    setInterval(updateOpenStatus, 60 * 1000);                          // re-check every minute
   </script>
 </body>
 </html>
