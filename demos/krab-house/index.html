@@ -18,10 +18,27 @@
   <title>Texas Krab House | Cajun Seafood Boil in Manor, TX (Demo)</title>
   <meta name="description" content="Louisiana-style crawfish, crab and shrimp boils in Round Rock, TX.">
   <meta name="theme-color" content="#0f1724">
-  <!-- Google Fonts: Bebas Neue (bold display headings) + Inter (clean, readable body text) -->
+  <!--
+    SPEED LESSON (Step 7): the browser can't draw anything until it has downloaded every normal
+    <link rel="stylesheet">. Google Fonts was blocking the first paint for ~0.75s.
+    Trick: "preload" the font CSS (download in the background), then switch it on when ready.
+    Until then, the page shows the backup fonts from our CSS (Impact / system fonts), so nothing waits.
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+  <!--
+    The hero photo is the biggest thing on the first screen ("LCP" = Largest Contentful Paint).
+    It's a CSS background, so normally the browser only finds it AFTER reading the CSS.
+    "preload" + fetchpriority="high" tells the browser: download this FIRST.
+    Two versions: a small one for phones, a big one for desktops ("media" picks the right one).
+  -->
+  <link rel="preload" as="image" fetchpriority="high" media="(max-width: 760px)"
+        href="https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=55&auto=format&fit=crop">
+  <link rel="preload" as="image" fetchpriority="high" media="(min-width: 761px)"
+        href="https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=1600&q=60&auto=format&fit=crop">
   <!--
     "Progressive enhancement": this tiny script marks the page as "JavaScript is on".
     Animations that hide content first (then reveal it) ONLY run when .js is present,
@@ -142,7 +159,7 @@
 
           <!-- Social proof right under the button: "other people trust them, so can I" -->
           <a href="#reviews" class="proof">
-            <span class="stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></span>
+            <span class="stars" aria-hidden="true"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></span>
             <span><strong>92% recommend</strong> · 883 Facebook reviews</span>
           </a>
 
@@ -155,7 +172,7 @@
         </div>
 
         <!-- Featured dish card (desktop only): gives the eye something delicious to land on -->
-        <a href="#specials" class="hero-card" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=900&q=75&auto=format&fit=crop')">
+        <a href="#specials" class="hero-card" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=640&q=60&auto=format&fit=crop')">
           <span class="hero-card-photo"></span>
           <span class="hero-card-body">
             <span class="hero-card-label"><svg class="icon"><use href="#i-flame"/></svg>Fan favorite</span>
@@ -253,7 +270,7 @@
           Items, contents and prices copied from their DoorDash menu (Oct 2026).
         -->
         <div class="menu-grid">
-          <article class="dish dish-featured" data-cat="crawfish" style="--img: url('https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1200&q=75&auto=format&fit=crop')">
+          <article class="dish dish-featured" data-cat="crawfish" style="--img: url('https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1000&q=60&auto=format&fit=crop')">
             <div class="dish-photo">
               <span class="badge"><svg class="icon"><use href="#i-flame"/></svg>Best seller · Seasonal (Jan–Jun)</span>
               <span class="price-tag">$55</span>
@@ -271,7 +288,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=640&q=60&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$55.99</span></div>
             <div class="dish-body">
               <h3>Texas Krab & Shrimp</h3>
@@ -283,7 +300,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=640&q=60&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$40.99</span></div>
             <div class="dish-body">
               <h3>Texas Only Krab Plate</h3>
@@ -295,7 +312,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559813654-935eab67b93a?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559813654-935eab67b93a?w=640&q=60&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$35.99</span></div>
             <div class="dish-body">
               <h3>Texas Big Shrimp Platter</h3>
@@ -308,7 +325,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1697748836791-9ddf7e616ece?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1697748836791-9ddf7e616ece?w=640&q=60&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$30</span></div>
             <div class="dish-body">
               <h3>Texas Catfish Basket</h3>
@@ -320,7 +337,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1568782947821-3d660dacc7cb?w=800&q=75&auto=format&fit=crop')">
+          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1568782947821-3d660dacc7cb?w=640&q=60&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$25.99</span></div>
             <div class="dish-body">
               <h3>Texas Shrimp Basket</h3>
@@ -395,7 +412,7 @@
     -->
     <section class="section catering" id="catering">
       <div class="container catering-grid">
-        <div class="catering-photo" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=1100&q=75&auto=format&fit=crop')">
+        <div class="catering-photo" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=900&q=60&auto=format&fit=crop')">
           <span class="price-tag catering-price">$206.20</span>
         </div>
         <div class="catering-copy">
@@ -442,7 +459,7 @@
         <div class="review-track" tabindex="0" aria-label="Customer reviews">
           <blockquote class="card quote">
             <div class="quote-top">
-              <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
               <span class="source source-google">Google</span>
             </div>
             <p>"Best crawfish in Round Rock. Hands down."</p>
@@ -451,7 +468,7 @@
 
           <blockquote class="card quote">
             <div class="quote-top">
-              <div class="stars" aria-label="Loved it"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <div class="stars" role="img" aria-label="Rated Loved it on DoorDash"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
               <span class="source source-dd">DoorDash</span>
             </div>
             <p>"The crawfish was on point, seasoned just right, spicy but not overkill. Them crawfish were cleaned right!"</p>
@@ -460,7 +477,7 @@
 
           <blockquote class="card quote">
             <div class="quote-top">
-              <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
               <span class="source source-google">Google</span>
             </div>
             <p>"Heavy plates every time. Love the Cajun seasoning."</p>
@@ -469,7 +486,7 @@
 
           <blockquote class="card quote">
             <div class="quote-top">
-              <div class="stars" aria-label="Loved it"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <div class="stars" role="img" aria-label="Rated Loved it on DoorDash"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
               <span class="source source-dd">DoorDash</span>
             </div>
             <p>"The best crawfish I've had outside of Louisiana. The flavors were just right!"</p>
@@ -478,7 +495,7 @@
 
           <blockquote class="card quote">
             <div class="quote-top">
-              <div class="stars" aria-label="Loved it"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <div class="stars" role="img" aria-label="Rated Loved it on DoorDash"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
               <span class="source source-dd">DoorDash</span>
             </div>
             <p>"This is the best fried fish & shrimp I've had in this area! Crispy & well seasoned!"</p>
@@ -487,7 +504,7 @@
 
           <blockquote class="card quote">
             <div class="quote-top">
-              <div class="stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
               <span class="source source-google">Google</span>
             </div>
             <p>"Tasted like a good backyard boil."</p>
@@ -496,7 +513,7 @@
 
           <blockquote class="card quote">
             <div class="quote-top">
-              <div class="stars" aria-label="Loved it"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+              <div class="stars" role="img" aria-label="Rated Loved it on DoorDash"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
               <span class="source source-dd">DoorDash</span>
             </div>
             <p>"The cleanest and freshest that I've had, and I've tried every place in the area."</p>
@@ -804,8 +821,12 @@
       // SAFETY NET: a fast flick can jump right past an element, so the observer never
       // sees it "on screen". On scroll we also reveal anything that's already above the bottom
       // of the screen. Lesson: always plan for the fast/weird case, not just the normal one.
+      // SPEED LESSON: "read first, then write". Measuring (getBoundingClientRect) right after
+      // changing classes forces the browser to redo layout each time ("forced reflow").
+      // So we measure ALL elements first, and only then change their classes.
       window.revealPassed = () => {
-        pending.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) reveal(el); });
+        const passed = [...pending].filter(el => el.getBoundingClientRect().top < innerHeight);  // read
+        passed.forEach(reveal);                                                                   // write
       };
     }
 
@@ -818,16 +839,19 @@
     const progressBar = document.querySelector('.scroll-progress');
     let ticking = false;
     function onScroll() {
-      const max = document.documentElement.scrollHeight - innerHeight;
-      progressBar.style.setProperty('--progress', max > 0 ? scrollY / max : 0);
-      header.classList.toggle('is-scrolled', scrollY > 10);
+      const max = document.documentElement.scrollHeight - innerHeight;   // read
+      const y = scrollY;                                                 // read
+      progressBar.style.setProperty('--progress', max > 0 ? y / max : 0); // write
+      header.classList.toggle('is-scrolled', y > 10);                    // write
       if (window.revealPassed) window.revealPassed();
       ticking = false;
     }
     window.addEventListener('scroll', () => {
       if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
     }, { passive: true });
-    onScroll();
+    // Run the first check on the next frame instead of right away, so the browser can finish
+    // laying out the page first (this removed the 100ms "forced reflow" Lighthouse found).
+    requestAnimationFrame(onScroll);
   </script>
 </body>
 </html>

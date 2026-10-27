@@ -46,7 +46,7 @@
   --info:   #1d4ed8;  --info-soft:   #dbeafe;
   --off:    #6b7280;
 
-  --doordash: #ff3008;
+  --doordash: #dc2a06;   /* a touch darker than DoorDash orange so white text passes contrast (4.5:1) */
 
   /* Semantic names: what a color is FOR (change the theme here only) */
   --text:        var(--ink-900);
@@ -211,7 +211,7 @@ h1, h2, h3, .logo-text {
 .btn:active { transform: translateY(0) scale(0.98); }   /* feels "pressed" */
 .btn-small  { min-height: 40px; padding: 0 var(--space-4); font-size: var(--fs-sm); }
 .btn-doordash { background: var(--doordash); }
-.btn-doordash:hover { background: #d92806; }
+.btn-doordash:hover { background: #b82305; }
 .btn-outline { background: transparent; border-color: currentColor; box-shadow: none; }
 .btn-outline:hover { background: rgba(255, 255, 255, 0.12); }
 
@@ -226,7 +226,7 @@ h1, h2, h3, .logo-text {
   background:
     /* 1) dark on the left where the text is, see-through on the right where the food is */
     linear-gradient(100deg, rgba(10, 15, 24, 0.97) 20%, rgba(10, 15, 24, 0.7) 55%, rgba(92, 7, 21, 0.45)),
-    url("https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=1800&q=70&auto=format&fit=crop") center / cover,
+    url("https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=1600&q=60&auto=format&fit=crop") center / cover,
     var(--ink-900);
 }
 /* A soft red glow behind the headline adds depth (a common "premium" trick) */
@@ -381,7 +381,7 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
 #specials {
   background:
     linear-gradient(rgba(10, 15, 24, 0.93), rgba(10, 15, 24, 0.97)),
-    url("https://images.unsplash.com/photo-1559813654-935eab67b93a?w=1600&q=60&auto=format&fit=crop") center / cover;
+    url("https://images.unsplash.com/photo-1559813654-935eab67b93a?w=1200&q=50&auto=format&fit=crop") center / cover;
   color: var(--white);
 }
 #specials h2 { color: var(--white); }
@@ -559,7 +559,7 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
 .reviews {
   background:
     linear-gradient(rgba(92, 7, 21, 0.9), rgba(10, 15, 24, 0.94)),
-    url("https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=1600&q=60&auto=format&fit=crop") center / cover;
+    url("https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=1200&q=50&auto=format&fit=crop") center / cover;
 }
 .reviews h2 { color: var(--white); }
 .reviews-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); margin-bottom: var(--space-6); }
@@ -783,7 +783,7 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
   color: var(--white);
   background:
     linear-gradient(120deg, rgba(163, 13, 38, 0.95), rgba(10, 15, 24, 0.95)),
-    url("https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1600&q=60&auto=format&fit=crop") center / cover;
+    url("https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1200&q=50&auto=format&fit=crop") center / cover;
 }
 .final-cta-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-6); }
 .final-cta h2 { color: var(--white); margin: 0; }
@@ -811,6 +811,7 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
 /* ---------- Footer ---------- */
 .footer { background: var(--ink-950); color: var(--ink-300); text-align: center; padding: var(--space-6) var(--space-5); font-size: var(--fs-sm); }
 .footer a { color: var(--gold-400); }
+.footer .small { color: var(--ink-300); }   /* gray-on-black was too faint to read (contrast fix) */
 .socials { display: flex; justify-content: center; gap: var(--space-3); margin-bottom: var(--space-4); }
 .socials a {
   display: grid; place-items: center;
@@ -846,7 +847,14 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
   .header .btn-small { display: none; }
   .carousel-nav { display: none; }            /* phones swipe instead */
   .swipe-hint { display: flex; }
-  .hero { min-height: auto; padding: var(--space-7) 0 var(--space-8); }
+  .hero {
+    min-height: auto; padding: var(--space-7) 0 var(--space-8);
+    /* phones get the smaller hero photo (same one we preload in the <head>) */
+    background:
+      linear-gradient(100deg, rgba(10, 15, 24, 0.97) 20%, rgba(10, 15, 24, 0.7) 55%, rgba(92, 7, 21, 0.45)),
+      url("https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=55&auto=format&fit=crop") center / cover,
+      var(--ink-900);
+  }
   .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
   .hero-actions .link-quiet { justify-content: center; }
   .btn-lg { width: 100%; }                   /* full-width button = easy thumb tap */
