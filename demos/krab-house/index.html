@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <!-- "noindex" tells Google NOT to list this demo, so it never competes with the real business -->
   <meta name="robots" content="noindex, nofollow">
-  <title>Texas Krab House Round Rock | Cajun Seafood Boil (Demo)</title>
+  <title>Texas Krab House | Cajun Seafood Boil in Manor, TX (Demo)</title>
   <meta name="description" content="Louisiana-style crawfish, crab and shrimp boils in Round Rock, TX.">
   <meta name="theme-color" content="#0f1724">
   <!-- Google Fonts: Bebas Neue (bold display headings) + Inter (clean, readable body text) -->
@@ -88,15 +88,15 @@
     <!-- ========== HERO ========== -->
     <section class="hero">
       <div class="container">
-        <p class="tag"><svg class="icon"><use href="#i-pin"/></svg>Round Rock, TX · Louisiana‑style boils</p>
+        <p class="tag"><svg class="icon"><use href="#i-pin"/></svg>Manor, TX · Open every day 11am–9pm</p>
         <h1>Fresh crawfish.<br>Bold Cajun flavor.<br><span>Backyard‑boil taste.</span></h1>
         <p class="lead">Crawfish, crab clusters, shrimp and catfish, soaked in our house Cajun butter. Made fresh, served heavy.</p>
         <div class="hero-buttons">
           <!-- DoorDash link: confirm with the owner this is their current store page -->
           <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash"><svg class="icon"><use href="#i-bike"/></svg>Order on DoorDash</a>
           <a href="tel:+12544184542" class="btn"><svg class="icon"><use href="#i-phone"/></svg>Call to pre‑order</a>
-          <!-- Opens Google Maps directions on phones -->
-          <a href="https://www.google.com/maps/dir/?api=1&destination=30.3440673,-97.6070413" target="_blank" class="btn btn-outline"><svg class="icon"><use href="#i-pin"/></svg>Get directions</a>
+          <!-- With 2 locations, this jumps to the locations section so people pick the closest one -->
+          <a href="#locations" class="btn btn-outline"><svg class="icon"><use href="#i-pin"/></svg>3 locations</a>
         </div>
       </div>
     </section>
@@ -247,7 +247,8 @@
         <div class="reviews-head">
           <div>
             <h2>What Round Rock is saying</h2>
-            <p class="reviews-sub">Real reviews from Google and DoorDash customers</p>
+            <!-- From their Facebook page: 92% recommend (883 reviews), 142K followers -->
+            <p class="reviews-sub"><strong>92% recommend</strong> on Facebook (883 reviews) · 142K followers</p>
           </div>
           <!-- Arrow buttons for desktop. On phones, people just swipe. -->
           <div class="carousel-nav">
@@ -331,29 +332,89 @@
     </section>
 
     <!-- ========== VISIT ========== -->
-    <section class="section visit" id="visit">
-      <div class="container visit-grid">
-        <div>
+    <!--
+      LOCATIONS. Showing the NUMBER of locations builds trust: it says "real, growing business".
+      Source: the business's own Facebook pages (Oct 2026).
+        - Manor: main page "Texas Krab House | Manor TX" (142K followers). Address, hours and phone from its Intro.
+          (This is the same spot as the Google Maps pin we started from.)
+        - Killeen: page "Texas Krab House -Round Rock", but its listed address is in Killeen.
+        - Brazos County: pop-up food stand in Caldwell, page says it is paused for now.
+      Confirm all of this with the owner before launch.
+    -->
+    <section class="section visit" id="locations">
+      <div class="container">
+        <div class="locations-head">
+          <span class="count-chip"><svg class="icon"><use href="#i-pin"/></svg>3 Texas Krab House locations</span>
           <h2>Come get your boil</h2>
-          <p>Find us at the food truck park in <strong>Round Rock, TX</strong>.</p>
-          <!-- Hours are a placeholder until the owner confirms them -->
-          <table class="hours">
-            <tr><td>Mon – Thu</td><td class="sample">Hours to confirm</td></tr>
-            <tr><td>Fri – Sat</td><td class="sample">Hours to confirm</td></tr>
-            <tr><td>Sunday</td><td class="sample">Hours to confirm</td></tr>
-          </table>
-          <p class="small">Closing early or sold out? We post it in <a href="#today">Today's Boil</a> first.</p>
-          <div class="hero-buttons">
-            <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash"><svg class="icon"><use href="#i-bike"/></svg>DoorDash</a>
-            <a href="tel:+12544184542" class="btn"><svg class="icon"><use href="#i-phone"/></svg>(254) 418‑4542</a>
-            <!-- "sms:" opens the text app, for people who'd rather text than call -->
-            <a href="sms:+12544184542" class="btn btn-outline"><svg class="icon"><use href="#i-message"/></svg>Text us</a>
-          </div>
+          <p class="intro">Pick the spot closest to you. Closing early or sold out? We post it in <a href="#today" class="text-link">Today's Boil</a> first.</p>
         </div>
-        <!-- A Google Map embedded with an <iframe> (a "window" to another website) -->
-        <iframe class="map" title="Map to Texas Krab House"
-          src="https://maps.google.com/maps?q=30.3440673,-97.6070413&z=15&output=embed"
-          loading="lazy"></iframe>
+
+        <div class="locations-grid">
+          <article class="location location-main">
+            <!-- A Google Map embedded with an <iframe> (a "window" to another website) -->
+            <iframe class="map" title="Map to Texas Krab House Manor"
+              src="https://maps.google.com/maps?q=30.3440673,-97.6070413&z=15&output=embed"
+              loading="lazy"></iframe>
+            <div class="location-body">
+              <span class="location-num">01</span>
+              <span class="location-flag">Flagship</span>
+              <h3>Manor</h3>
+              <p class="address">11205 Aus Tex Acres Lane<br>Manor, TX 78653</p>
+              <p class="location-note">Food truck · Dine‑in & outdoor seating</p>
+              <table class="hours">
+                <tr><td>Every day</td><td>11am – 9pm</td></tr>
+              </table>
+              <div class="location-actions">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=30.3440673,-97.6070413" target="_blank" class="btn"><svg class="icon"><use href="#i-pin"/></svg>Directions</a>
+                <a href="tel:+12544184542" class="btn btn-outline"><svg class="icon"><use href="#i-phone"/></svg>Call</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="location">
+            <iframe class="map" title="Map to Texas Krab House Killeen"
+              src="https://maps.google.com/maps?q=1501+E+Rancier+Ave,+Killeen,+TX+76541&z=15&output=embed"
+              loading="lazy"></iframe>
+            <div class="location-body">
+              <span class="location-num">02</span>
+              <h3>Killeen</h3>
+              <p class="address">1501 E Rancier Ave<br>Killeen, TX 76541</p>
+              <p class="location-note">Delivery · Takeout · Outdoor seating</p>
+              <table class="hours">
+                <tr><td>Hours</td><td class="sample">To confirm with owner</td></tr>
+              </table>
+              <div class="location-actions">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=1501+E+Rancier+Ave,+Killeen,+TX+76541" target="_blank" class="btn"><svg class="icon"><use href="#i-pin"/></svg>Directions</a>
+                <a href="tel:+12546585730" class="btn btn-outline"><svg class="icon"><use href="#i-phone"/></svg>Call</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="location">
+            <iframe class="map" title="Map to Caldwell, TX"
+              src="https://maps.google.com/maps?q=Caldwell,+TX&z=12&output=embed"
+              loading="lazy"></iframe>
+            <div class="location-body">
+              <span class="location-num">03</span>
+              <span class="location-flag flag-paused">Pop‑up · Paused</span>
+              <h3>Brazos County</h3>
+              <p class="address">Pop‑up food stand<br>Caldwell, TX</p>
+              <p class="location-note">Fridays & Saturdays when open</p>
+              <table class="hours">
+                <tr><td>Status</td><td>Reopening soon</td></tr>
+              </table>
+              <div class="location-actions">
+                <a href="https://www.facebook.com/p/Texas-Krab-House-More-Brazos-County-61551730790081/" target="_blank" class="btn btn-outline"><svg class="icon"><use href="#i-arrow"/></svg>Follow for updates</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="contact-row">
+          <p><strong>Questions or big orders?</strong> Call or text <a href="tel:+12544184542" class="text-link">(254) 418‑4542</a></p>
+          <!-- "sms:" opens the text app, for people who'd rather text than call -->
+          <a href="sms:+12544184542" class="btn btn-outline"><svg class="icon"><use href="#i-message"/></svg>Text us</a>
+        </div>
       </div>
     </section>
   </main>
@@ -362,11 +423,12 @@
   <nav class="mobile-bar" aria-label="Quick actions">
     <a href="tel:+12544184542"><svg class="icon"><use href="#i-phone"/></svg>Call</a>
     <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="bar-order"><svg class="icon"><use href="#i-bike"/></svg>Order</a>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=30.3440673,-97.6070413" target="_blank"><svg class="icon"><use href="#i-pin"/></svg>Directions</a>
+    <a href="#locations"><svg class="icon"><use href="#i-pin"/></svg>Locations</a>
   </nav>
 
   <footer class="footer">
-    <p>© 2026 Texas Krab House Round Rock</p>
+    <p>© 2026 Texas Krab House · Manor, TX</p>
+    <p class="small"><a href="https://www.facebook.com/authorbrandonharlee" target="_blank">Follow us on Facebook</a></p>
     <p class="small">Concept design by <a href="https://cyan-dev.vercel.app" target="_blank">Ja'Bari Milligan</a></p>
   </footer>
 
