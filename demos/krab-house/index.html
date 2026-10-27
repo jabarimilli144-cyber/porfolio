@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!--
+  DEMO / CONCEPT WEBSITE for Texas Krab House Round Rock
+  Built by Ja'Bari Milligan to pitch a new website. NOT the official site.
+
+  Sales idea: every section fixes a problem customers complained about in Google reviews:
+    - "drove there and they were sold out"     → "Today's Boil" availability board
+    - "their phone doesn't work"               → big tap-to-call + text button
+    - "special didn't come with corn"          → menu clearly lists what's included
+    - "closed unexpectedly"                    → hours + "check today's status" notice
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- "noindex" tells Google NOT to list this demo, so it never competes with the real business -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Texas Krab House Round Rock | Cajun Seafood Boil (Demo)</title>
+  <meta name="description" content="Louisiana-style crawfish, crab and shrimp boils in Round Rock, TX.">
+  <!-- Google Fonts: a bold font for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Honesty banner: makes clear this is a concept, not the official site -->
+  <div class="demo-banner">
+    Website concept by <a href="https://cyan-dev.vercel.app" target="_blank">Ja'Bari Milligan</a> for Texas Krab House. Not the official site.
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo">🦀 Texas <span>Krab</span> House</a>
+      <a href="tel:+12544184542" class="btn btn-small">📞 Call to order</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="container">
+        <p class="tag">Round Rock, TX · Louisiana‑style boils</p>
+        <h1>Fresh crawfish.<br>Bold Cajun flavor.<br><span>Backyard‑boil taste.</span></h1>
+        <p class="lead">Crawfish, crab clusters, shrimp and catfish, soaked in our house Cajun butter. Made fresh, served heavy.</p>
+        <div class="hero-buttons">
+          <!-- DoorDash link: confirm with the owner this is their current store page -->
+          <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash">🛵 Order on DoorDash</a>
+          <a href="tel:+12544184542" class="btn">📞 Call to pre‑order</a>
+          <!-- Opens Google Maps directions on phones -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=30.3440673,-97.6070413" target="_blank" class="btn btn-outline">📍 Get directions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TODAY'S BOIL (fixes "drove there and it was sold out") ========== -->
+    <section class="section today" id="today">
+      <div class="container">
+        <div class="today-head">
+          <h2>Today's Boil</h2>
+          <!-- The owner changes ONE word here each morning (or we connect it to a Google Sheet later) -->
+          <p class="updated">Updated daily · check before you drive 🚗</p>
+        </div>
+        <div class="status-grid">
+          <div class="status in">  <span class="dot"></span><strong>Crawfish</strong><em>Available</em></div>
+          <div class="status in">  <span class="dot"></span><strong>Crab clusters</strong><em>Available</em></div>
+          <div class="status in">  <span class="dot"></span><strong>Shrimp</strong><em>Available</em></div>
+          <div class="status low"> <span class="dot"></span><strong>Boudin balls</strong><em>Running low</em></div>
+          <div class="status out"> <span class="dot"></span><strong>Fried fish</strong><em>Sold out</em></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SPECIALS ========== -->
+    <section class="section" id="specials">
+      <div class="container">
+        <h2>Crowd favorites</h2>
+        <p class="intro">Every special lists exactly what's in the bag. No surprises.</p>
+        <!--
+          PHOTO MENU. Each card's photo is set with a CSS variable: style="--img: url(...)"
+          Photos are free SAMPLE photos from Unsplash (unsplash.com/license).
+          Before launch: replace them with the owner's REAL food photos.
+        -->
+        <div class="menu-grid">
+          <article class="dish dish-featured" style="--img: url('https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1200&q=75&auto=format&fit=crop')">
+            <div class="dish-photo">
+              <span class="badge">🔥 Best seller</span>
+              <span class="price-tag">$35</span>
+            </div>
+            <div class="dish-body">
+              <h3>5 lb Crawfish Special</h3>
+              <!-- A clear "what's included" list fixes the "I thought it came with corn" complaints -->
+              <ul class="includes">
+                <li>5 lbs boiled crawfish</li>
+                <li>Choice of spice level: mild, medium, hot, extra hot</li>
+                <li class="sample">Add corn, potatoes, sausage or egg (ask for prices)</li>
+              </ul>
+              <div class="spice">Spice: <span>🌶️🌶️🌶️</span></div>
+            </div>
+          </article>
+
+          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=800&q=75&auto=format&fit=crop')">
+            <div class="dish-photo"><span class="price-tag small-tag">Ask</span></div>
+            <div class="dish-body">
+              <h3>Crab & Shrimp Platter</h3>
+              <ul class="includes">
+                <li>Crab clusters + shrimp</li>
+                <li>Tossed in Cajun butter</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1766589221324-656419e4c844?w=800&q=75&auto=format&fit=crop')">
+            <div class="dish-photo">
+              <span class="badge">💸 Every day</span>
+              <span class="price-tag">$1</span>
+            </div>
+            <div class="dish-body">
+              <h3>$1 Wings</h3>
+              <ul class="includes">
+                <li>Lemon pepper or spicy lemon pepper</li>
+                <li>Add fries</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1697748836791-9ddf7e616ece?w=800&q=75&auto=format&fit=crop')">
+            <div class="dish-photo"><span class="price-tag small-tag">Ask</span></div>
+            <div class="dish-body">
+              <h3>Catfish Basket</h3>
+              <ul class="includes">
+                <li>Golden fried catfish</li>
+                <li>Served with fries</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1568782947821-3d660dacc7cb?w=800&q=75&auto=format&fit=crop')">
+            <div class="dish-photo"><span class="price-tag small-tag">Ask</span></div>
+            <div class="dish-body">
+              <h3>Shrimp Basket</h3>
+              <ul class="includes">
+                <li>Crispy fried shrimp</li>
+                <li>Served with fries</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="dish" style="--img: url('https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=75&auto=format&fit=crop')">
+            <div class="dish-photo"><span class="price-tag small-tag">Add‑ons</span></div>
+            <div class="dish-body">
+              <h3>Sides & Extras</h3>
+              <ul class="includes">
+                <li>Corn, potatoes, sausage, egg</li>
+                <li>Boudin balls, fried pickles</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <!-- A call-to-action right after the menu: people decide what they want, then order -->
+        <div class="order-strip">
+          <p><strong>Hungry yet?</strong> Get it delivered to your door.</p>
+          <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash">🛵 Order on DoorDash</a>
+        </div>
+        <p class="note">Demo menu: items are taken from customer reviews; sample photos from Unsplash. Final menu, prices and photos to be confirmed with the owner.</p>
+      </div>
+    </section>
+
+    <!-- ========== REVIEWS ========== -->
+    <section class="section reviews">
+      <div class="container">
+        <h2>What Round Rock is saying</h2>
+        <div class="grid">
+          <blockquote class="card quote">
+            <p>"Best crawfish in Round Rock. Hands down."</p>
+            <cite>Jennifer D. · Google review</cite>
+          </blockquote>
+          <blockquote class="card quote">
+            <p>"Heavy plates every time. Love the Cajun seasoning."</p>
+            <cite>David L. · Google review</cite>
+          </blockquote>
+          <blockquote class="card quote">
+            <p>"Tasted like a good backyard boil."</p>
+            <cite>Bennie B. · Google review</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VISIT ========== -->
+    <section class="section visit" id="visit">
+      <div class="container visit-grid">
+        <div>
+          <h2>Come get your boil</h2>
+          <p>Find us at the food truck park in <strong>Round Rock, TX</strong>.</p>
+          <!-- Hours are a placeholder until the owner confirms them -->
+          <table class="hours">
+            <tr><td>Mon – Thu</td><td class="sample">Hours to confirm</td></tr>
+            <tr><td>Fri – Sat</td><td class="sample">Hours to confirm</td></tr>
+            <tr><td>Sunday</td><td class="sample">Hours to confirm</td></tr>
+          </table>
+          <p class="small">Closing early or sold out? We post it in <a href="#today">Today's Boil</a> first.</p>
+          <div class="hero-buttons">
+            <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash">🛵 DoorDash</a>
+            <a href="tel:+12544184542" class="btn">📞 (254) 418‑4542</a>
+            <!-- "sms:" opens the text app, for people who'd rather text than call -->
+            <a href="sms:+12544184542" class="btn btn-outline">💬 Text us</a>
+          </div>
+        </div>
+        <!-- A Google Map embedded with an <iframe> (a "window" to another website) -->
+        <iframe class="map" title="Map to Texas Krab House"
+          src="https://maps.google.com/maps?q=30.3440673,-97.6070413&z=15&output=embed"
+          loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky bar on phones: call + directions always one tap away -->
+  <div class="mobile-bar">
+    <a href="tel:+12544184542">📞 Call</a>
+    <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="bar-order">🛵 Order</a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=30.3440673,-97.6070413" target="_blank">📍 Directions</a>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Texas Krab House Round Rock</p>
+    <p class="small">Concept design by <a href="https://cyan-dev.vercel.app" target="_blank">Ja'Bari Milligan</a></p>
+  </footer>
+</body>
+</html>

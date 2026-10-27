@@ -1,0 +1,262 @@
+/* Texas Krab House demo: Cajun colors (deep red, gold, dark navy) */
+:root {
+  --red: #c8102e;
+  --red-dark: #9b0c23;
+  --gold: #f5b700;
+  --navy: #0f1724;
+  --cream: #fff8ec;
+  --text: #1c1c1c;
+  --muted: #5f5f5f;
+  --green: #16a34a;
+  --orange: #ea580c;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "Inter", system-ui, sans-serif; color: var(--text); background: var(--cream); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+h1, h2, h3, .logo { font-family: "Bebas Neue", Impact, sans-serif; letter-spacing: 1px; font-weight: 400; }
+
+/* ---------- Demo banner ---------- */
+.demo-banner { background: #222; color: #ddd; font-size: 0.8rem; text-align: center; padding: 6px 16px; }
+.demo-banner a { color: var(--gold); text-decoration: underline; }
+
+/* ---------- Header ---------- */
+.header { position: sticky; top: 0; z-index: 10; background: var(--navy); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { color: #fff; font-size: 1.7rem; }
+.logo span { color: var(--gold); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 2px solid var(--red);
+  transition: transform 0.2s, background 0.2s;
+}
+.btn:hover { background: var(--red-dark); transform: translateY(-2px); }
+.btn-small { padding: 8px 16px; font-size: 0.9rem; }
+/* DoorDash's own brand red, so customers instantly recognize it */
+.btn-doordash { background: #ff3008; border-color: #ff3008; }
+.btn-doordash:hover { background: #d92806; }
+
+.order-strip {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+  margin-top: 28px; padding: 20px 24px;
+  background: var(--navy); color: #fff; border-radius: var(--radius);
+}
+.order-strip p { font-size: 1.1rem; }
+.btn-outline { background: transparent; border-color: currentColor; }
+.btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* ---------- Hero ---------- */
+.hero {
+  color: #fff;
+  padding: 90px 0 100px;
+  /* Two layered backgrounds: a dark gradient on top of a pattern of dots */
+  /* Two layers: a see-through dark gradient ON TOP of a food photo, so the text stays readable */
+  background:
+    linear-gradient(100deg, rgba(15, 23, 36, 0.95) 30%, rgba(155, 12, 35, 0.55)),
+    url("https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=1800&q=70&auto=format&fit=crop") center / cover,
+    var(--navy);
+}
+.tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+h1 { font-size: clamp(3rem, 8vw, 5.5rem); line-height: 0.95; margin-bottom: 20px; }
+h1 span { color: var(--gold); }
+.lead { font-size: 1.15rem; max-width: 560px; color: #f1e6d6; margin-bottom: 30px; }
+.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- Sections ---------- */
+.section { padding: 70px 0; }
+h2 { font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; margin-bottom: 8px; color: var(--navy); }
+.intro { color: var(--muted); margin-bottom: 32px; }
+.note { margin-top: 24px; font-size: 0.85rem; color: var(--muted); font-style: italic; }
+.small { font-size: 0.9rem; color: var(--muted); }
+.sample { color: var(--muted) !important; font-style: italic; }
+
+/* ---------- Today's Boil ---------- */
+.today { background: #fff; border-bottom: 4px solid var(--gold); padding: 50px 0; }
+.today-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.updated { color: var(--muted); font-weight: 600; }
+.status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.status {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 10px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--cream);
+}
+.status em { grid-column: 2; font-style: normal; font-size: 0.85rem; font-weight: 600; }
+.dot { grid-row: span 2; width: 14px; height: 14px; border-radius: 50%; }
+.in .dot { background: var(--green); box-shadow: 0 0 0 4px #dcfce7; }
+.in em { color: var(--green); }
+.low .dot { background: var(--orange); box-shadow: 0 0 0 4px #ffedd5; }
+.low em { color: var(--orange); }
+.out .dot { background: #9ca3af; }
+.out em { color: #6b7280; }
+.out strong { text-decoration: line-through; color: #9ca3af; }
+
+/* ---------- Menu cards ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+.featured { border: 3px solid var(--red); }
+.badge {
+  position: absolute; top: -12px; left: 20px;
+  background: var(--gold); color: var(--navy);
+  font-size: 0.8rem; font-weight: 800;
+  padding: 4px 12px; border-radius: 999px;
+}
+.featured .badge { background: var(--red); color: #fff; }
+.emoji { font-size: 2.4rem; }
+.card h3 { font-size: 1.8rem; color: var(--navy); }
+.price { font-size: 1.5rem; font-weight: 800; color: var(--red); margin-bottom: 10px; }
+.includes { list-style: none; }
+.includes li { padding: 4px 0 4px 22px; position: relative; font-size: 0.95rem; }
+.includes li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 800; }
+
+/* ---------- Photo menu ---------- */
+/* The whole menu section sits on a dark, blurred-looking food photo, like a restaurant menu board */
+#specials {
+  background:
+    linear-gradient(rgba(15, 23, 36, 0.92), rgba(15, 23, 36, 0.96)),
+    url("https://images.unsplash.com/photo-1559813654-935eab67b93a?w=1600&q=60&auto=format&fit=crop") center / cover;
+  color: #fff;
+}
+#specials h2 { color: #fff; }
+#specials .intro, #specials .note { color: #cbd5e1; }
+
+/* GRID with named sizes: the featured dish takes 2 columns and 2 rows on big screens */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.dish-featured { grid-column: span 2; grid-row: span 2; }
+
+.dish {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: var(--text);
+  border-radius: var(--radius);
+  overflow: hidden;              /* keeps the photo inside the rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s;
+}
+.dish:hover { transform: translateY(-6px); }
+
+.dish-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;           /* every photo gets the same shape */
+  /* var(--img) comes from the style="" on each card in the HTML */
+  background: var(--img) center / cover;
+  transition: transform 0.4s;
+}
+.dish-featured .dish-photo { aspect-ratio: auto; flex: 1; min-height: 300px; }
+/* A dark fade at the bottom of each photo so white text stays readable */
+.dish-photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(transparent 55%, rgba(0, 0, 0, 0.45));
+}
+.dish:hover .dish-photo { transform: scale(1.04); }   /* gentle zoom on hover */
+
+.dish .badge { position: absolute; top: 14px; left: 14px; z-index: 1; }
+.price-tag {
+  position: absolute; right: 14px; bottom: 14px; z-index: 1;
+  background: var(--red); color: #fff;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 2rem; line-height: 1;
+  padding: 8px 14px 4px;
+  border-radius: 10px;
+  transform: rotate(-4deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.dish-featured .price-tag { font-size: 3rem; }
+.small-tag { font-size: 1.3rem; background: var(--navy); }
+
+.dish-body { padding: 18px 20px 22px; background: #fff; position: relative; }
+.dish h3 { font-size: 1.7rem; color: var(--navy); margin-bottom: 6px; }
+.dish-featured h3 { font-size: 2.4rem; }
+.spice { margin-top: 10px; font-weight: 600; font-size: 0.9rem; }
+
+.order-strip { background: var(--red); }
+
+/* ---------- Reviews ---------- */
+.reviews {
+  background:
+    linear-gradient(rgba(155, 12, 35, 0.88), rgba(15, 23, 36, 0.92)),
+    url("https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=1600&q=60&auto=format&fit=crop") center / cover;
+}
+.reviews h2 { color: #fff; margin-bottom: 30px; }
+.quote p { font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; }
+.quote p::before { content: "★★★★★"; display: block; color: var(--gold); letter-spacing: 3px; margin-bottom: 8px; }
+.quote cite { color: var(--muted); font-style: normal; font-size: 0.9rem; }
+
+/* ---------- Visit ---------- */
+.visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.hours { width: 100%; border-collapse: collapse; margin: 20px 0 12px; }
+.hours td { padding: 10px 0; border-bottom: 1px solid #eadfcd; }
+.hours td:last-child { text-align: right; font-weight: 600; }
+.visit .hero-buttons { margin-top: 20px; }
+.visit .btn-outline { color: var(--red); }
+.visit .btn-outline:hover { background: var(--red); color: #fff; }
+.map { width: 100%; height: 360px; border: 0; border-radius: var(--radius); }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--navy); color: #cbd5e1; text-align: center; padding: 30px 20px; }
+.footer a { color: var(--gold); }
+
+/* ---------- Mobile sticky bar (hidden on desktop) ---------- */
+.mobile-bar { display: none; }
+
+/* Tablets: 2 columns instead of 3 */
+@media (max-width: 1000px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .dish-featured { grid-row: auto; }
+  .dish-featured .dish-photo { aspect-ratio: 16 / 9; min-height: 0; }
+}
+
+@media (max-width: 760px) {
+  .header .btn-small { display: none; }        /* the bottom bar replaces it */
+  .hero { padding: 60px 0 70px; }
+  .visit-grid { grid-template-columns: 1fr; }
+  .menu-grid { grid-template-columns: 1fr; }               /* one dish per row on phones */
+  .dish-featured { grid-column: auto; grid-row: auto; }
+  .dish-featured .dish-photo { aspect-ratio: 4 / 3; min-height: 0; }
+  .dish-featured h3 { font-size: 2rem; }
+  .mobile-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 20;
+    background: var(--red);
+  }
+  .mobile-bar a { color: #fff; text-align: center; padding: 14px 4px; font-weight: 800; font-size: 0.95rem; }
+  .mobile-bar a + a { border-left: 1px solid rgba(255, 255, 255, 0.25); }
+  .mobile-bar .bar-order { background: #ff3008; }
+  .footer { padding-bottom: 80px; }            /* room for the sticky bar */
+}
