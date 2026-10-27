@@ -36,7 +36,7 @@
     Two versions: a small one for phones, a big one for desktops ("media" picks the right one).
   -->
   <link rel="preload" as="image" fetchpriority="high" media="(max-width: 760px)"
-        href="https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=55&auto=format&fit=crop">
+        href="https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=45&auto=format&fit=crop">
   <link rel="preload" as="image" fetchpriority="high" media="(min-width: 761px)"
         href="https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=1600&q=60&auto=format&fit=crop">
   <!--
@@ -172,7 +172,7 @@
         </div>
 
         <!-- Featured dish card (desktop only): gives the eye something delicious to land on -->
-        <a href="#specials" class="hero-card" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=640&q=60&auto=format&fit=crop')">
+        <a href="#specials" class="hero-card" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=640&q=50&auto=format&fit=crop')">
           <span class="hero-card-photo"></span>
           <span class="hero-card-body">
             <span class="hero-card-label"><svg class="icon"><use href="#i-flame"/></svg>Fan favorite</span>
@@ -288,7 +288,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=640&q=60&auto=format&fit=crop')">
+          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=640&q=50&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$55.99</span></div>
             <div class="dish-body">
               <h3>Texas Krab & Shrimp</h3>
@@ -300,7 +300,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=640&q=60&auto=format&fit=crop')">
+          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=640&q=50&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$40.99</span></div>
             <div class="dish-body">
               <h3>Texas Only Krab Plate</h3>
@@ -312,7 +312,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559813654-935eab67b93a?w=640&q=60&auto=format&fit=crop')">
+          <article class="dish" data-cat="boils" style="--img: url('https://images.unsplash.com/photo-1559813654-935eab67b93a?w=640&q=50&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$35.99</span></div>
             <div class="dish-body">
               <h3>Texas Big Shrimp Platter</h3>
@@ -325,7 +325,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1697748836791-9ddf7e616ece?w=640&q=60&auto=format&fit=crop')">
+          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1697748836791-9ddf7e616ece?w=640&q=50&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$30</span></div>
             <div class="dish-body">
               <h3>Texas Catfish Basket</h3>
@@ -337,7 +337,7 @@
             </div>
           </article>
 
-          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1568782947821-3d660dacc7cb?w=640&q=60&auto=format&fit=crop')">
+          <article class="dish" data-cat="fried" style="--img: url('https://images.unsplash.com/photo-1568782947821-3d660dacc7cb?w=640&q=50&auto=format&fit=crop')">
             <div class="dish-photo"><span class="price-tag">$25.99</span></div>
             <div class="dish-body">
               <h3>Texas Shrimp Basket</h3>
@@ -412,7 +412,7 @@
     -->
     <section class="section catering" id="catering">
       <div class="container catering-grid">
-        <div class="catering-photo" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=900&q=60&auto=format&fit=crop')">
+        <div class="catering-photo" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=720&q=50&auto=format&fit=crop')">
           <span class="price-tag catering-price">$206.20</span>
         </div>
         <div class="catering-copy">
@@ -849,9 +849,9 @@
     window.addEventListener('scroll', () => {
       if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
     }, { passive: true });
-    // Run the first check on the next frame instead of right away, so the browser can finish
-    // laying out the page first (this removed the 100ms "forced reflow" Lighthouse found).
-    requestAnimationFrame(onScroll);
+    // At the top of the page there is nothing to update (progress = 0, no shadow), so we skip the
+    // startup measurement entirely. Only run it if the page opened already scrolled down (e.g. after a reload).
+    if (scrollY > 0) requestAnimationFrame(onScroll);
   </script>
 </body>
 </html>

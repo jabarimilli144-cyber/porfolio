@@ -810,7 +810,7 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
 
 /* ---------- Footer ---------- */
 .footer { background: var(--ink-950); color: var(--ink-300); text-align: center; padding: var(--space-6) var(--space-5); font-size: var(--fs-sm); }
-.footer a { color: var(--gold-400); }
+.footer a { color: var(--gold-400); text-decoration: underline; text-underline-offset: 3px; }   /* underline = still clear for color-blind visitors */
 .footer .small { color: var(--ink-300); }   /* gray-on-black was too faint to read (contrast fix) */
 .socials { display: flex; justify-content: center; gap: var(--space-3); margin-bottom: var(--space-4); }
 .socials a {
@@ -852,7 +852,7 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
     /* phones get the smaller hero photo (same one we preload in the <head>) */
     background:
       linear-gradient(100deg, rgba(10, 15, 24, 0.97) 20%, rgba(10, 15, 24, 0.7) 55%, rgba(92, 7, 21, 0.45)),
-      url("https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=55&auto=format&fit=crop") center / cover,
+      url("https://images.unsplash.com/photo-1559685516-2602ebf3002b?w=800&q=45&auto=format&fit=crop") center / cover,
       var(--ink-900);
   }
   .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
