@@ -99,8 +99,10 @@
       <!-- Desktop menu links (hidden on phones; the bottom tab bar does this job there) -->
       <nav class="nav-links" aria-label="Main">
         <a href="#specials">Menu</a>
+        <a href="#catering">Catering</a>
         <a href="#reviews">Reviews</a>
         <a href="#locations">Locations</a>
+        <a href="#faq">FAQ</a>
       </nav>
       <!-- Header button = the SAME main action as the hero. One goal, repeated. -->
       <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-small btn-doordash"><svg class="icon"><use href="#i-bike"/></svg>Order now</a>
@@ -187,6 +189,37 @@
           <div class="status in">  <span class="dot"></span><strong>Shrimp</strong><em>Available</em></div>
           <div class="status low"> <span class="dot"></span><strong>Gumbo</strong><em>Running low</em></div>
           <div class="status out"> <span class="dot"></span><strong>Fried fish</strong><em>Sold out</em></div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ========== HOW IT WORKS ==========
+      LESSON: people don't order when they're UNSURE how. Three numbered steps remove the doubt.
+      Keep each step to a few words. Fewer decisions = more orders.
+    -->
+    <section class="section steps-section" aria-labelledby="steps-title">
+      <div class="container">
+        <h2 id="steps-title" class="center">Your boil in 3 easy steps</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">1</span>
+            <h3>Pick your plate</h3>
+            <p>Boils, fried baskets, gumbo. Every plate lists exactly what's inside.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">2</span>
+            <h3>Choose your butter</h3>
+            <p>Cajun, Garlic, Lemon Pepper, Fire or our House butter.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">3</span>
+            <h3>Order your way</h3>
+            <p>Delivery on DoorDash, or call ahead and pick it up hot.</p>
+          </li>
+        </ol>
+        <div class="center">
+          <a href="#specials" class="btn">See the menu <svg class="icon arrow"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
     </section>
@@ -351,6 +384,36 @@
           <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash"><svg class="icon"><use href="#i-bike"/></svg>Order on DoorDash<svg class="icon"><use href="#i-arrow"/></svg></a>
         </div>
         <p class="note">Prices from the DoorDash menu (October 2026); in-store prices may differ. Sample photos from Unsplash. Final menu, prices and photos to be confirmed with the owner.</p>
+      </div>
+    </section>
+
+    <!--
+      ========== CATERING / PARTY ORDERS ==========
+      LESSON: one big order is worth 10 small ones. The $206 Family Platter deserves its own section.
+      The "Text us" button pre-fills a message, so the customer only has to add a date and hit send.
+      ("sms:...?&body=" works on both iPhone and Android.)
+    -->
+    <section class="section catering" id="catering">
+      <div class="container catering-grid">
+        <div class="catering-photo" style="--img: url('https://images.unsplash.com/photo-1655992829003-b1d5b4b35a73?w=1100&q=75&auto=format&fit=crop')">
+          <span class="price-tag catering-price">$206.20</span>
+        </div>
+        <div class="catering-copy">
+          <span class="eyebrow">Parties · Game days · Family nights</span>
+          <h2>Feeding a crowd? Get the Family Platter.</h2>
+          <p class="intro">One giant boil, ready for the whole crew. Pre‑order so it's hot and ready when you arrive.</p>
+          <ul class="includes big-includes">
+            <li>10 krab klusters</li>
+            <li>50 shrimp</li>
+            <li>5 sausage, 5 corn, 5 eggs & potatoes</li>
+            <li>Your choice of butter</li>
+          </ul>
+          <div class="catering-actions">
+            <a href="sms:+12544184542?&body=Hi!%20I'd%20like%20to%20pre-order%20a%20Family%20Platter%20for%20(date%20%26%20time)%3A%20" class="btn"><svg class="icon"><use href="#i-message"/></svg>Text to pre‑order</a>
+            <a href="tel:+12544184542" class="link-quiet dark"><svg class="icon"><use href="#i-phone"/></svg>or call (254) 418‑4542</a>
+          </div>
+          <p class="small">Bigger event? Ask about custom party orders.</p>
+        </div>
       </div>
     </section>
 
@@ -530,6 +593,59 @@
         </div>
       </div>
     </section>
+
+    <!--
+      ========== FAQ ==========
+      LESSON: every question a customer has is a reason NOT to order (yet). Answer them before they ask.
+      <details> + <summary> = a built-in accordion. No JavaScript needed, and it works for keyboards and screen readers.
+      Answers only use facts from their own pages (Facebook, DoorDash). Confirm with the owner.
+    -->
+    <section class="section faq" id="faq">
+      <div class="container faq-wrap">
+        <div class="faq-head">
+          <h2>Good questions</h2>
+          <p class="intro">Still wondering? Call or text <a href="tel:+12544184542" class="text-link">(254) 418‑4542</a>.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>When are you open?</summary>
+            <p>Our Manor truck is open <strong>every day, 11am to 9pm</strong>. If we sell out or close early, we post it in <a href="#today" class="text-link">Today's Boil</a> and on Facebook first.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is crawfish in season?</summary>
+            <p>Crawfish season usually runs <strong>January to June</strong>. In season, get it by the pound ($9.99/lb) or as the 5 lb Combo. Off season, try a krab & shrimp boil.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you deliver?</summary>
+            <p>Yes! Order <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="text-link">delivery on DoorDash</a>. Prefer pickup? Call ahead and it'll be hot when you get here.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What butters can I choose?</summary>
+            <p>Cajun, Garlic, Lemon Pepper, Fire, or our House butter. Want extra? Add more butter for $1.50.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I order for a party?</summary>
+            <p>Absolutely. The <a href="#catering" class="text-link">Family Platter</a> feeds a crew, and we take custom party orders. Text us your date and headcount.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I eat there?</summary>
+            <p>Yes, the Manor spot has dine‑in and outdoor seating. Grab a table and dig in.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FINAL CALL TO ACTION ========== -->
+    <!-- LESSON: end every page with ONE clear next step. Visitors who scrolled this far are ready. -->
+    <section class="final-cta">
+      <div class="container final-cta-inner">
+        <h2>Hungry yet?<br><span>Your boil is a few taps away.</span></h2>
+        <div class="final-cta-actions">
+          <a href="https://www.doordash.com/store/texas-krab-house-round-rock-27990263/" target="_blank" class="btn btn-doordash btn-lg"><svg class="icon"><use href="#i-bike"/></svg>Order on DoorDash<svg class="icon arrow"><use href="#i-arrow"/></svg></a>
+          <a href="tel:+12544184542" class="link-quiet"><svg class="icon"><use href="#i-phone"/></svg>or call (254) 418‑4542</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Sticky bar on phones: icon on top, label below, like a real app's tab bar -->
@@ -655,7 +771,8 @@
     if (!reduceMotion && 'IntersectionObserver' in window) {
       const targets = document.querySelectorAll(
         '.section h2, .intro, .today-head, .follow-line, .status, .menu-grid .dish, .menu-group, ' +
-        '.order-strip, .reviews-head, .quote, .locations-head, .location, .contact-row'
+        '.order-strip, .reviews-head, .quote, .locations-head, .location, .contact-row, ' +
+        '.step, .catering-photo, .catering-copy, .faq-head, .faq-item, .final-cta-inner'
       );
 
       // Number siblings 0,1,2... inside each parent so they arrive one after another

@@ -678,6 +678,118 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
   background: var(--surface); border: 1px solid var(--paper-200); border-radius: var(--radius-lg);
 }
 
+/* =====================================================================
+   CONVERSION BOOSTERS (Step 6)
+   ===================================================================== */
+.center { text-align: center; }
+
+/* ---------- Order in 3 steps ---------- */
+.steps-section { background: var(--bg); }
+.steps-section h2 { margin-bottom: var(--space-6); }
+.steps {
+  list-style: none;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);
+  margin-bottom: var(--space-6);
+  counter-reset: none;
+}
+.step {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--paper-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  text-align: center;
+}
+/* A dashed line connecting the steps (desktop only) */
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute; top: 52px; right: calc(var(--space-5) * -1); width: var(--space-5);
+  border-top: 2px dashed var(--ink-200);
+}
+.step-num {
+  display: inline-grid; place-items: center;
+  width: 48px; height: 48px;
+  margin-bottom: var(--space-3);
+  border-radius: 50%;
+  background: var(--brand); color: var(--white);
+  font-family: var(--font-display); font-size: var(--fs-2xl); line-height: 1;
+  box-shadow: 0 0 0 6px var(--red-50);
+}
+.step h3 { font-size: var(--fs-xl); margin-bottom: var(--space-2); }
+.step p { color: var(--text-muted); font-size: var(--fs-sm); }
+
+/* ---------- Catering ---------- */
+.catering { background: var(--bg); }
+.catering-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); align-items: center; }
+.catering-photo {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  border-radius: var(--radius-lg);
+  background: var(--img) center / cover;
+  box-shadow: var(--shadow-lg);
+}
+.catering-price { font-size: var(--fs-4xl); right: var(--space-5); bottom: var(--space-5); }
+.eyebrow {
+  display: inline-block;
+  color: var(--brand);
+  font-size: var(--fs-xs); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+.catering-copy h2 { margin-bottom: var(--space-3); }
+.catering-copy .intro { margin-bottom: var(--space-5); }
+.big-includes { margin-bottom: var(--space-6); }
+.big-includes li { font-size: var(--fs-base); }
+.catering-actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-3) var(--space-5); margin-bottom: var(--space-3); }
+.link-quiet.dark { color: var(--ink-700); }
+.link-quiet.dark:hover { color: var(--brand); }
+
+/* ---------- FAQ ---------- */
+.faq { background: var(--surface); }
+.faq-wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: var(--space-7); align-items: start; }
+.faq-head { position: sticky; top: 100px; }
+.faq-list { display: grid; gap: var(--space-3); }
+.faq-item {
+  border: 1px solid var(--paper-200);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.faq-item[open] { border-color: var(--ink-200); box-shadow: var(--shadow-sm); background: var(--surface); }
+.faq-item summary {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;                       /* hide the default triangle... */
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {                /* ...and draw our own "+" that turns into "×" */
+  content: "+";
+  flex-shrink: 0;
+  display: grid; place-items: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--red-50); color: var(--brand);
+  font-size: 1.25rem; font-weight: 600; line-height: 1;
+  transition: transform var(--dur) var(--ease);
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { padding: 0 var(--space-5) var(--space-5); color: var(--ink-700); }
+
+/* ---------- Final call to action ---------- */
+.final-cta {
+  padding: var(--space-8) 0;
+  color: var(--white);
+  background:
+    linear-gradient(120deg, rgba(163, 13, 38, 0.95), rgba(10, 15, 24, 0.95)),
+    url("https://images.unsplash.com/photo-1778783383528-6a8bfa7f5122?w=1600&q=60&auto=format&fit=crop") center / cover;
+}
+.final-cta-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-6); }
+.final-cta h2 { color: var(--white); margin: 0; }
+.final-cta h2 span { color: var(--gold-400); }
+.final-cta-actions { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+
 /* ---------- Socials ---------- */
 .follow-line {
   display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2);
@@ -718,6 +830,8 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
    RESPONSIVE
    ===================================================================== */
 @media (max-width: 1000px) {
+  .catering-grid, .faq-wrap { grid-template-columns: 1fr; gap: var(--space-6); }
+  .faq-head { position: static; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-card { display: none; }              /* phones/tablets: keep focus on the main button */
   .nav-links { display: none; }
@@ -736,6 +850,15 @@ h2 { font-size: var(--fs-h2); margin-bottom: var(--space-2); color: var(--text);
   .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
   .hero-actions .link-quiet { justify-content: center; }
   .btn-lg { width: 100%; }                   /* full-width button = easy thumb tap */
+  .steps { grid-template-columns: 1fr; gap: var(--space-3); }
+  .step { display: grid; grid-template-columns: auto 1fr; column-gap: var(--space-4); text-align: left; padding: var(--space-5); }
+  .step-num { grid-row: span 2; margin: 0; }
+  .step:not(:last-child)::after { display: none; }
+  .catering-price { font-size: var(--fs-3xl); }
+  .catering-actions { flex-direction: column; align-items: stretch; text-align: center; }
+  .catering-actions .link-quiet { justify-content: center; }
+  .final-cta-inner { flex-direction: column; text-align: center; }
+  .final-cta-actions { width: 100%; }
   .locations-grid { grid-template-columns: 1fr; }
   .location-body { padding: var(--space-5); }
   .location-num { right: var(--space-5); }
