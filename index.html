@@ -14,6 +14,10 @@
        Tip: including your CITY helps local customers find you on Google! -->
   <title>Ja'Bari Milligan | Web Designer in Austin, TX</title>
   <meta name="description" content="Ja'Bari Milligan builds fast, modern websites for Austin small businesses. Get a free quote today.">
+  <!-- "Open Graph" tags: control the preview card when your link is shared on WhatsApp, Facebook, iMessage -->
+  <meta property="og:title" content="Ja'Bari Milligan | Web Designer in Austin, TX">
+  <meta property="og:description" content="Fast, modern websites for Austin small businesses. Get a free quote today.">
+  <meta property="og:type" content="website">
   <!-- This connects our CSS file (the styling) to this HTML file -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -96,26 +100,24 @@
     <section id="work" class="section section-alt">
       <div class="container">
         <h2>Recent work</h2>
-        <p class="section-intro">No clients yet? That's OK — build practice projects and show them here!</p>
+        <p class="section-intro">Every project is hand‑built, mobile‑friendly, and fast.</p>
 
+        <!-- Only show REAL work. Each new client or practice site = a new card here. -->
         <div class="grid">
-          <!-- TODO: Replace with your real projects. This very page is project #1! -->
           <article class="card project">
-            <div class="project-thumb" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">My Portfolio</div>
+            <div class="project-thumb" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">You're looking at it</div>
             <h3>Personal Portfolio</h3>
-            <p>This website! Built from scratch with HTML & CSS.</p>
+            <p>This website. Designed and coded from scratch with HTML & CSS, hosted on Vercel.</p>
+            <!-- target="_blank" opens the link in a new tab -->
+            <p><a href="https://github.com/jabarimilli144-cyber/porfolio" target="_blank" class="text-link">See the code →</a></p>
           </article>
 
-          <article class="card project">
-            <div class="project-thumb" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">Café Demo</div>
-            <h3>Coffee Shop (practice)</h3>
-            <p>A demo landing page for a local café — menu, hours, and map.</p>
-          </article>
-
-          <article class="card project">
-            <div class="project-thumb" style="background: linear-gradient(135deg, #10b981, #0ea5e9);">Gym Demo</div>
-            <h3>Fitness Studio (practice)</h3>
-            <p>Class schedule, trainer profiles and a "book a session" button.</p>
+          <!-- A "special offer" card turns empty space into a reason to contact you -->
+          <article class="card project offer">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">Your business here</div>
+            <h3>Founding client offer</h3>
+            <p>My first 5 Austin clients get <strong>20% off</strong> any website package in exchange for an honest review.</p>
+            <p><a href="#contact" class="text-link">Claim your spot →</a></p>
           </article>
         </div>
       </div>

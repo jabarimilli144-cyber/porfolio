@@ -158,6 +158,10 @@ h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 10px; }
 
 .project { padding: 0 0 24px; overflow: hidden; }
 .project h3, .project p { padding: 0 24px; }
+.text-link { color: var(--primary); font-weight: 600; }
+.text-link:hover { text-decoration: underline; }
+.offer { border: 2px dashed #f59e0b; }
+
 .project-thumb {
   height: 170px;
   display: flex;
